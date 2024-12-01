@@ -49,10 +49,8 @@ require("lualine").setup({
     lualine_z = { "location" },
   },
   extensions = {
-    "fern",
     "fzf",
     "lazy",
     "mason",
-    "quickfix",
   },
 })
