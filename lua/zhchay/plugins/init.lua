@@ -50,15 +50,15 @@ local load = {
   "ui.neo-tree",
   "ui.lualine",
   "ui.gitsigns",
+  "ui.indent-blankline",
+  "ui.auto-session",
+  "ui.barbecue",
+  "ui.scrolleof",
   "editor.lsp",
   "editor.cmp",
   "editor.treesitter",
   "editor.autopairs",
   "editor.surround",
-  "qol.indent-blankline",
-  "qol.scrolleof",
-  "qol.autosession",
-  "qol.barbecue",
 }
 
 -- Setup
