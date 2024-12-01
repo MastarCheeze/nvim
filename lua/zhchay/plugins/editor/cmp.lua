@@ -1,5 +1,4 @@
 local cmp = require("cmp")
-local lspkind = require("lspkind")
 local utils = require("zhchay.utils")
 
 local icons = {
