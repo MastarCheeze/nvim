@@ -18,4 +18,4 @@ map("n", "<leader>gs", "<cmd>FzfLua git_status<cr>", { desc = "fzf Git status" }
 
 -- LSP
 -- <leader>l
--- keymaps in lang/lsp.lua
+-- keymaps in editor/lsp.lua

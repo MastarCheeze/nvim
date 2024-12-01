@@ -15,7 +15,7 @@ local install = {
   { "lewis6991/gitsigns.nvim" },
   { "nvim-tree/nvim-web-devicons" },
 
-  -- Lang
+  -- Editor
   { "neovim/nvim-lspconfig" },
   {
     "williamboman/mason.nvim",
@@ -50,11 +50,11 @@ local load = {
   "ui.neo-tree",
   "ui.lualine",
   "ui.gitsigns",
-  "lang.lsp",
-  "lang.cmp",
-  "lang.treesitter",
-  "lang.autopairs",
-  "lang.surround",
+  "editor.lsp",
+  "editor.cmp",
+  "editor.treesitter",
+  "editor.autopairs",
+  "editor.surround",
   "qol.indent-blankline",
   "qol.scrolleof",
   "qol.autosession",
