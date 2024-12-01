@@ -4,16 +4,6 @@ local install = {
   { "folke/which-key.nvim" },                   -- keybind guide
   { "ibhagwan/fzf-lua" },                       -- fuzzy finder and picker
   {
-    "lambdalisue/fern.vim",                     -- file explorer
-    dependencies = {
-      "lambdalisue/vim-nerdfont",               -- filetype icons
-      "lambdalisue/vim-glyph-palette",          -- colored glyphs
-      "lambdalisue/vim-fern-renderer-nerdfont", -- filetype icon renderer
-      "lambdalisue/vim-fern-git-status",        -- git status in fern
-      "lambdalisue/vim-fern-hijack",            -- replace netrw with fern
-    },
-  },
-  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {

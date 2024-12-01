@@ -14,7 +14,6 @@ c.green = "#4ade80"
 c.blue = "#60a5fa"
 
 monokai.setup({ palette = c })
-vim.fn["glyph_palette#defaults#highlight"]() -- fern glyphs color palette
 
 -- Highlight groups
 local hlgroups = {
@@ -99,10 +98,6 @@ local hlgroups = {
 
   -- which-key
   WhichKeyBorder = { link = "FloatBorder" },
-
-  -- fern
-  FernRootText = { fg = c.yellow, bold = true },
-  FernRootSymbol = { link = "FernRootText" },
 
   -- neo-tree
   NeoTreeDimText = { fg = c.base6 },

@@ -4,7 +4,6 @@
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "39e2eda76828d88b773cc27a3f61d2ad782c922d" },
   "cmp-nvim-lua": { "branch": "main", "commit": "f12408bdb54c39c23e67cab726264c10db33ada8" },
-  "fern.vim": { "branch": "main", "commit": "95218a9eeb5bf25ff30196b8700eeb64b8f3aeba" },
   "fzf-lua": { "branch": "main", "commit": "2a7eb32871a131e24021dd1756865e475fe7e274" },
   "gitsigns.nvim": { "branch": "main", "commit": "5f808b5e4fef30bd8aca1b803b4e555da07fc412" },
   "indent-blankline.nvim": { "branch": "master", "commit": "7871a88056f7144defca9c931e311a3134c5d509" },
@@ -25,10 +24,5 @@
   "nvim-web-devicons": { "branch": "master", "commit": "e87554285f581047b1bf236794b0eb812b444b87" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "scrollEOF.nvim": { "branch": "master", "commit": "f0ce8b853b15edacc5380855fbfe9e606788df69" },
-  "vim-fern-git-status": { "branch": "master", "commit": "151336335d3b6975153dad77e60049ca7111da8e" },
-  "vim-fern-hijack": { "branch": "master", "commit": "f65524899231b15528066744e714fb344abf0892" },
-  "vim-fern-renderer-nerdfont": { "branch": "master", "commit": "325629c68eb543229715b68920fbcb92b206beb6" },
-  "vim-glyph-palette": { "branch": "master", "commit": "d696c432f5efcc3d21a5467ec459298063f5fd7d" },
-  "vim-nerdfont": { "branch": "master", "commit": "6319ac33673c6f39dfe07c10027b071b69dd73fe" },
   "which-key.nvim": { "branch": "main", "commit": "8badb359f7ab8711e2575ef75dfe6fbbd87e4821" }
 }

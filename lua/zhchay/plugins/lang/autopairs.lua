@@ -1,5 +1,5 @@
 local npairs = require("nvim-autopairs")
 
 npairs.setup({
-  disable_filetype = { "fern", "fzf" },
+  disable_filetype = { "neo-tree", "fzf" },
 })
