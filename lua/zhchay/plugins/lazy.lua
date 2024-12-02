@@ -20,7 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Start lazy
 local function install(plugins)
   require("lazy").setup({
-    spec = plugins,
+    spec = plugins, -- TODO load plugins using lazy
     change_detection = { enabled = false },
     -- disable unneccesary plugins
     performance = {
