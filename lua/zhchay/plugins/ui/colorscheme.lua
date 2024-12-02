@@ -103,8 +103,8 @@ local hlgroups = {
   NeoTreeDimText = { fg = c.base6 },
 
   -- indent-blankline
-  IblIndent = { fg = c.base3 }, -- normal indentline
-  IblScope = { fg = c.base4 },  -- highlighted indentline
+  IblIndent = { fg = c.base4 }, -- normal indentline
+  IblScope = { fg = c.border },  -- highlighted indentline
 
   -- gitsigns
   Added = { fg = c.green },
