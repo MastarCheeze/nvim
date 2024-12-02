@@ -5,10 +5,11 @@ require("nvim-treesitter.configs").setup({
   highlight = {
     enabled = true,
   },
-  textobjects = {
+  incremental_selection = {
     enabled = true,
   },
-  indent = {
-    enabled = true
+  text_objects = {
+    enabled = true, -- TODO set this up sometime (see joseans video)
   },
+  indent = { enabled = true },
 })
