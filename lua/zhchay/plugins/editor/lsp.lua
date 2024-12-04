@@ -35,7 +35,11 @@ local handlers = {
 
 -- Setup LSP server configurations
 for _, name in ipairs(servers) do
-  local config = require("zhchay.plugins.editor.lsp_config." .. name)
+  local modulePath = "zhchay.plugins.editor.lsp_config." .. name
+  local config = {}
+  if utils.moduleExists(modulePath) then
+    config = require(modulePath)
+  end
   config.capabilities = capabilities
   config.handlers = handlers
   lspconfig[name].setup(config)
