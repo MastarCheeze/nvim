@@ -1,8 +1,8 @@
 local install = {
   -- UI
-  { "tanvirtin/monokai.nvim" },                 -- colorscheme
-  { "folke/which-key.nvim" },                   -- keybind guide
-  { "ibhagwan/fzf-lua" },                       -- fuzzy finder and picker
+  { "tanvirtin/monokai.nvim" }, -- colorscheme
+  { "folke/which-key.nvim" },   -- keybind guide
+  { "ibhagwan/fzf-lua" },       -- fuzzy finder and picker
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -29,7 +29,11 @@ local install = {
       "hrsh7th/cmp-buffer",
     },
   },
-  { "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate" },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    build = ":TSUpdate",
+  },
   { "windwp/nvim-autopairs" },
   { "kylechui/nvim-surround" },
 
@@ -38,14 +42,15 @@ local install = {
   { "lukas-reineke/indent-blankline.nvim" }, -- indentation guides
   { "rmagatti/auto-session" },               -- restore last session
   {
-    "utilyre/barbecue.nvim",
+    "utilyre/barbecue.nvim",                 -- vscode-like breadcrumbs
     dependencies = { "SmiteshP/nvim-navic" },
-  }, -- vscode-like breadcrumbs
+  },
 }
 
 local load = {
   "ui.which-key",
   "ui.fzf-lua",
+  "editor.lsp",
   "ui.neo-tree",
   "ui.lualine",
   "ui.gitsigns",
@@ -53,7 +58,6 @@ local load = {
   "ui.auto-session",
   "ui.barbecue",
   "ui.scrolleof",
-  "editor.lsp",
   "editor.cmp",
   "editor.treesitter",
   "editor.autopairs",

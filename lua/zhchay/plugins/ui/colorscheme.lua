@@ -18,11 +18,9 @@ monokai.setup({ palette = c })
 -- Highlight groups
 local hlgroups = {
   -- GUI
-  CursorLineNr = { fg = c.white, bg = c.base2 },
+  CursorLineNr = { fg = c.white },
   WinSeparator = { fg = c.border },
-
-  NormalFloat = { bg = c.base2 },
-  FloatBorder = { fg = c.border, bg = c.base2 },
+  FloatBorder = { fg = c.border },
 
   Search = { bg = c.base4 },
   CurSearch = { fg = c.base2, bg = c.yellow },
@@ -134,10 +132,10 @@ local hlgroups = {
 
   lualine_x_tabs_active = { fg = c.white, bg = c.base4 }, -- active tab
 
-  lualine_b_diagnostics_hint = { fg = c.purple, bg = c.base3 },
-  lualine_b_diagnostics_info = { fg = c.aqua, bg = c.base3 },
-  lualine_b_diagnostics_warn = { fg = c.yellow, bg = c.base3 },
-  lualine_b_diagnostics_error = { fg = c.purple, bg = c.base3 },
+  lualine_b_diagnostics_hint = { link = "DiagnosticSignHint" },
+  lualine_b_diagnostics_info = { link = "DiagnosticSignInfo" },
+  lualine_b_diagnostics_warn = { link = "DiagnosticSignWarn" },
+  lualine_b_diagnostics_error = { link = "DiagnosticSignError" },
 
   LuaLineDiffAdd = { link = "Added" },
   LuaLineDiffChange = { link = "Changed" },

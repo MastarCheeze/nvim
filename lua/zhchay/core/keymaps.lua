@@ -2,10 +2,12 @@ local map = vim.keymap.set
 vim.g.mapleader = " "
 local wkAdd = require("zhchay.utils").wkAdd
 
+-- TODO move all keymaps here
+
 -- Habit keymaps
 -- map("n", "<leader>w", "<cmd>w<cr>", { desc = "Write buffer" })
 -- map("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit all windows" })
-map("n", "<leader>n", "gg=G", { desc = "Format buffer indentation" })
+map("n", "<leader>n", "mqHmwgg=G`wzt`q", { desc = "Format buffer indentation" })
 
 -- Copy and paste
 map("x", "<leader>p", "\"_dP", { noremap = true, desc = "Paste over & retain buffer" })
@@ -29,9 +31,10 @@ map("n", "<C-k>", "<C-w>k", { desc = "Switch window up" })
 
 -- Window management
 wkAdd({ "<leader>s", group = "Windows" })
-map("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-map("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-map("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
+map("n", "<leader>sh", "<C-w>v<C-w>h", { desc = "Split window to the left" })
+map("n", "<leader>sl", "<C-w>v", { desc = "Split window to the right" })
+map("n", "<leader>sj", "<C-w>s", { desc = "Split window below" })
+map("n", "<leader>sk", "<C-w>s<C-w>k", { desc = "Split window above" })
 map("n", "<leader>sd", "<cmd>close<cr>", { desc = "Close current split" })
 
 -- Tab management
