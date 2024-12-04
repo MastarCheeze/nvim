@@ -16,13 +16,13 @@ local install = {
   { "nvim-tree/nvim-web-devicons" },
 
   -- Editor
-  { "neovim/nvim-lspconfig" },
+  { "neovim/nvim-lspconfig" }, -- lsp
   {
-    "williamboman/mason.nvim",
+    "williamboman/mason.nvim", -- lsp package manager
     dependencies = { "williamboman/mason-lspconfig.nvim" },
   },
   {
-    "hrsh7th/nvim-cmp",
+    "hrsh7th/nvim-cmp", -- autocomplete
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
@@ -34,6 +34,7 @@ local install = {
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     build = ":TSUpdate",
   },
+  { "stevearc/conform.nvim" }, -- formatter
   { "windwp/nvim-autopairs" },
   { "kylechui/nvim-surround" },
 
@@ -59,6 +60,7 @@ local load = {
   "ui.barbecue",
   "ui.scrolleof",
   "editor.cmp",
+  "editor.formatter",
   "editor.treesitter",
   "editor.autopairs",
   "editor.surround",
