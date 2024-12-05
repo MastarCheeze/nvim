@@ -25,7 +25,6 @@ local hlgroups = {
   Search = { bg = c.base4 },
   CurSearch = { fg = c.base2, bg = c.yellow },
   IncSearch = { link = "CurSearch" },
-
   MatchParen = { fg = c.orange, standout = true },
 
   -- Text editor
@@ -98,11 +97,26 @@ local hlgroups = {
   WhichKeyBorder = { link = "FloatBorder" },
 
   -- neo-tree
+  NeoTreeRootName = { fg = c.aqua, bold = true, underline = true },
   NeoTreeDimText = { fg = c.base6 },
+  NeoTreeDotfile = { fg = c.base3 },
+
+  NeoTreeGitAdded = { fg = c.green },
+  NeoTreeDeleted = { fg = c.red },
+  NeoTreeGitModified = { fg = c.yellow },
+  NeoTreeGitRenamed = { link = "NeoTreeGitModified" },
+
+  NeoTreeGitUntracked = { fg = c.orange, italic = true },
+  NeoTreeGitIgnored = { link = "NeoTreeDotfile" },
+  NeoTreeGitUnstaged = { link = "NeoTreeGitUntracked" },
+  NeoTreeGitStaged = { link = "NeoTreeGitAdded" },
+  NeoTreeGitConflict = { fg = c.red, bold = true, italic = true },
+
+  NeoTreeIndentMarker = { fg = c.base4 },
 
   -- indent-blankline
   IblIndent = { fg = c.base4 }, -- normal indentline
-  IblScope = { fg = c.border },  -- highlighted indentline
+  IblScope = { fg = c.border }, -- highlighted indentline
 
   -- gitsigns
   Added = { fg = c.green },
