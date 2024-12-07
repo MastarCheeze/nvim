@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local utils = require("zhchay.utils")
 
 local cmd = "<cmd>Neotree position=current reveal<cr>"
 local function opts(desc)
@@ -12,18 +13,67 @@ map("n", "<leader>sej", "<C-w>s" .. cmd, opts("Show file explorer in split below
 map("n", "<leader>sek", "<C-w>s<C-w>k" .. cmd, opts("Show file explorer in split above"))
 
 require("neo-tree").setup({
-  window = {
-    position = "current",
-  },
   -- enabled sources
   sources = {
     "filesystem",
     "buffers",
-    -- "git_status",
-    -- "document_symbols",
+  },
+  popup_border_style = utils.border,
+  use_default_mappings = false,
+  window = {
+    position = "current",
+    -- mappings
+    mappings = {
+      ["<2-LeftMouse>"] = "open",
+      ["<cr>"] = "open",
+      ["<esc>"] = "cancel",
+      ["q"] = "close_window",
+      ["C"] = "close_node",
+      ["X"] = "close_all_nodes",
+      ["Z"] = "expand_all_nodes",
+      ["a"] = "add",
+      ["A"] = "add_directory",
+      ["d"] = "delete",
+      ["r"] = "rename",
+      ["y"] = "copy_to_clipboard",
+      ["x"] = "cut_to_clipboard",
+      ["p"] = "paste_from_clipboard",
+      ["c"] = "copy",
+      ["m"] = "move",
+      ["R"] = "refresh",
+      ["\\"] = "next_source",
+      ["?"] = "show_help",
+    },
   },
   -- filesystem source
   filesystem = {
+    window = {
+      mappings = {
+        ["I"] = "toggle_hidden",
+        ["i"] = "show_file_details",
+        ["/"] = "fuzzy_finder",
+        ["#"] = "fuzzy_finder_directory",
+        ["<C-x>"] = "clear_filter",
+        ["."] = "set_root",
+        ["<bs>"] = "navigate_up",
+        ["[g"] = "prev_git_modified",
+        ["]g"] = "next_git_modified",
+        ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+        ["oc"] = { "order_by_created", nowait = false },
+        ["od"] = { "order_by_diagnostics", nowait = false },
+        ["og"] = { "order_by_git_status", nowait = false },
+        ["om"] = { "order_by_modified", nowait = false },
+        ["on"] = { "order_by_name", nowait = false },
+        ["os"] = { "order_by_size", nowait = false },
+        ["ot"] = { "order_by_type", nowait = false },
+      },
+      fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
+        ["<down>"] = "move_cursor_down",
+        ["<C-n>"] = "move_cursor_down",
+        ["<up>"] = "move_cursor_up",
+        ["<C-p>"] = "move_cursor_up",
+      },
+    },
     filtered_items = {
       hide_dotfiles = true,
       hide_gitignored = true,
@@ -39,6 +89,7 @@ require("neo-tree").setup({
       },
       show_hidden_count = true,
     },
+    -- command overrides
     commands = {
       -- Override delete to use trash instead of rm
       delete = function(state)
@@ -46,9 +97,11 @@ require("neo-tree").setup({
         local path = state.tree:get_node().path
         local msg = "Trash " .. path .. "?"
         inputs.confirm(msg, function(confirmed)
-          if not confirmed then return end
+          if not confirmed then
+            return
+          end
 
-          vim.fn.system({ "trash", "-F", vim.fn.fnameescape(path) })
+          vim.fn.system({ "trash", vim.fn.fnameescape(path) })
         end)
       end,
       -- over write default 'delete_visual' command to 'trash' x n.
@@ -67,12 +120,14 @@ require("neo-tree").setup({
         local count = GetTableLen(selected_nodes)
         local msg = "Trash " .. count .. " files ?"
         inputs.confirm(msg, function(confirmed)
-          if not confirmed then return end
+          if not confirmed then
+            return
+          end
           local toDelete = {}
           for _, node in ipairs(selected_nodes) do
             table.insert(toDelete, vim.fn.fnameescape(node.path))
           end
-          vim.fn.system(vim.list_extend({ "trash", "-F" }, toDelete))
+          vim.fn.system(vim.list_extend({ "trash" }, toDelete))
         end)
       end,
     },
@@ -81,6 +136,29 @@ require("neo-tree").setup({
   -- buffer source
   buffers = {
     show_unloaded = true,
+    window = {
+      mappings = {
+        ["."] = "set_root",
+        ["<bs>"] = "navigate_up",
+        ["d"] = "buffer_delete",
+        ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+        ["i"] = { "show_file_details" },
+        ["oc"] = { "order_by_created", nowait = false },
+        ["od"] = { "order_by_diagnostics", nowait = false },
+        ["om"] = { "order_by_modified", nowait = false },
+        ["on"] = { "order_by_name", nowait = false },
+        ["os"] = { "order_by_size", nowait = false },
+        ["ot"] = { "order_by_type", nowait = false },
+        ["a"] = "none",
+        ["A"] = "none",
+        ["r"] = "none",
+        ["y"] = "none",
+        ["x"] = "none",
+        ["p"] = "none",
+        ["c"] = "none",
+        ["m"] = "none",
+      },
+    },
   },
   -- other config
   default_component_configs = {
@@ -90,17 +168,17 @@ require("neo-tree").setup({
     git_status = {
       symbols = {
         -- Change type
-        added     = "󱇬",
-        deleted   = "󱘹",
-        modified  = "󰏫",
-        renamed   = "󰁕",
+        added = "󱇬",
+        deleted = "󱘹",
+        modified = "󰏫",
+        renamed = "󰁕",
         -- Status type
         untracked = "",
-        ignored   = "󰜥",
-        unstaged  = "󱦰 󱈸",
-        staged    = "󱦰 󰈻",
-        conflict  = "",
-      }
+        ignored = "󰜥",
+        unstaged = "󱦰 󱈸",
+        staged = "󱦰 󰈻",
+        conflict = "",
+      },
     },
     diagnostics = {
       symbols = {
@@ -119,11 +197,37 @@ require("neo-tree").setup({
     -- info columns
     file_size = {
       enabled = true,
-      required_width = 64, -- min width of window required to show this column
     },
     last_modified = {
       enabled = true,
-      required_width = 80, -- min width of window required to show this column
+      width = 15,
+      format = function(seconds)
+        local now = os.time()
+        local diff = now - seconds
+
+        local function pluralise(value, unit)
+          return value .. " " .. unit .. (value == 1 and "" or "s") .. " ago"
+        end
+
+        if diff < 60 then
+          return "Just now"
+        elseif diff < 3600 then
+          local minutes = math.floor(diff / 60)
+          return pluralise(minutes, "minute")
+        elseif diff < 86400 then
+          local hours = math.floor(diff / 3600)
+          return pluralise(hours, "hour")
+        elseif diff < 86400 * 30 then
+          local days = math.floor(diff / 86400)
+          return pluralise(days, "day")
+        elseif diff < 86400 * 365 then
+          local months = math.floor(diff / (86400 * 30))
+          return pluralise(months, "month")
+        else
+          local years = math.floor(diff / (86400 * 365))
+          return pluralise(years, "year")
+        end
+      end,
     },
     type = { enabled = true },
     created = { enabled = false },
