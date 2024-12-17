@@ -5,8 +5,8 @@ local wkAdd = require("zhchay.utils").wkAdd
 -- TODO move all keymaps here
 
 -- Habit keymaps
--- map("n", "<leader>w", "<cmd>w<cr>", { desc = "Write buffer" })
--- map("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit all windows" })
+map("n", "<leader>w", "<cmd>w<cr>", { desc = "Write buffer" })
+map("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit all windows" })
 map("n", "<leader>n", "mqHmwgg=G`wzt`q", { desc = "Format buffer indentation" })
 
 -- Copy and paste
