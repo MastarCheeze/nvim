@@ -1,6 +1,7 @@
 require("barbecue").setup({
   show_dirname = false,
   show_basename = true,
+  show_modified = true,
   create_autocmd = false, -- prevent barbecue from updating itself automatically
 })
 
@@ -9,6 +10,7 @@ vim.api.nvim_create_autocmd({
   "BufWinEnter",
   "CursorHold",
   "InsertLeave",
+  "BufModifiedSet",
 }, {
   group = vim.api.nvim_create_augroup("barbecue.updater", {}),
   callback = function()
