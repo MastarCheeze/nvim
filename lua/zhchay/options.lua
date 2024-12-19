@@ -28,3 +28,10 @@ o.wrap = false -- turn off line wrap
 o.scrolloff = 8 -- always keep at least 8 lines above/below cursor
 o.clipboard = "unnamedplus" -- use system clipboard as default
 
+-- Highlight text on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight selection on yank",
+  callback = function()
+    vim.highlight.on_yank({ higroup = "Visual", timeout = 150 })
+  end,
+})
