@@ -24,4 +24,9 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     config = function() require("zhchay.plugins.indentblankline") end,
   },
+  -- scroll past the end of the buffer
+  {
+    "Aasim-A/scrollEOF.nvim",
+    opts = {},
+  },
 }
