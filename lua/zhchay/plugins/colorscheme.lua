@@ -1,16 +1,10 @@
 return {
   {
-    "loctvl842/monokai-pro.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
     config = function()
-      require("monokai-pro").setup({
-        overridePalette = function(filter)
-          return {
-            background = "#141519",
-          }
-        end
-      })
-
-      vim.cmd.colorscheme("monokai-pro")
+      require("zhchay.colorscheme")
     end
   }
 }
