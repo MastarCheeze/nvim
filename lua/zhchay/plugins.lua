@@ -12,4 +12,11 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function() require("zhchay.plugins.statusline") end,
   },
+  -- telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function() require("zhchay.plugins.telescope") end,
+  }
 }
