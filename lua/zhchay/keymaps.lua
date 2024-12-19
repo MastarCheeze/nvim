@@ -8,11 +8,15 @@ map("n", "<leader>e", ":e .<cr>", { desc = "Show file explorer" })
 map("n", "<leader>/", "gcc", { remap = true, desc = "Toggle comment" })
 map("v", "<leader>/", "gc", { remap = true, desc = "Toggle comment" })
 
--- Cursor navigation between splits
-map("n", "<C-h>", "<C-w>h", { desc = "Move to left split" })
-map("n", "<C-l>", "<C-w>l", { desc = "Move to right split" })
-map("n", "<C-j>", "<C-w>j", { desc = "Move to down split" })
-map("n", "<C-k>", "<C-w>k", { desc = "Move to up split" })
+-- Window navigation
+map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
+map("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
+
+-- Tab navigation
+map("n", "<C-,>", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
+map("n", "<C-.>", "<cmd>tabnext<cr>", { desc = "Next tab" })
 
 -- Custom text-editing actions
 map("n", "<leader>vo", "o<esc>o", { desc = "Insert two newlines below cursor" })
