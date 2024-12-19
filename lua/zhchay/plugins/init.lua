@@ -1,15 +1,15 @@
 local install = {
   -- UI
   { "tanvirtin/monokai.nvim" }, -- colorscheme
-  { "folke/which-key.nvim" },   -- keybind guide
-  { "ibhagwan/fzf-lua" },       -- fuzzy finder and picker
+  { "folke/which-key.nvim" }, -- keybind guide
+  { "ibhagwan/fzf-lua" }, -- fuzzy finder and picker
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-    }
+    },
   },
   { "nvim-lualine/lualine.nvim" }, -- status line
   { "lewis6991/gitsigns.nvim" },
@@ -27,6 +27,7 @@ local install = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-buffer",
+      "saadparwaiz1/cmp_luasnip",
     },
   },
   {
@@ -35,15 +36,20 @@ local install = {
     build = ":TSUpdate",
   },
   { "stevearc/conform.nvim" }, -- formatter
+  {
+    "L3MON4D3/LuaSnip", -- snippet engine
+    version = "v2.*",
+    build = "make install_jsregexp", -- optional
+  },
   { "windwp/nvim-autopairs" },
   { "kylechui/nvim-surround" },
 
   -- QOL tweaks
-  { "Aasim-A/scrollEOF.nvim" },              -- scroll past the end of buffer
+  { "Aasim-A/scrollEOF.nvim" }, -- scroll past the end of buffer
   { "lukas-reineke/indent-blankline.nvim" }, -- indentation guides
-  { "rmagatti/auto-session" },               -- restore last session
+  { "rmagatti/auto-session" }, -- restore last session
   {
-    "utilyre/barbecue.nvim",                 -- vscode-like breadcrumbs
+    "utilyre/barbecue.nvim", -- vscode-like breadcrumbs
     dependencies = { "SmiteshP/nvim-navic" },
   },
 }
@@ -62,6 +68,8 @@ local load = {
   "editor.cmp",
   "editor.formatter",
   "editor.treesitter",
+  "editor.luasnip",
+  "editor.snippets",
   "editor.autopairs",
   "editor.surround",
 }

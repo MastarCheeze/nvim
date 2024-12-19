@@ -19,7 +19,8 @@ map("v", "<leader>/", "gc", { remap = true, desc = "Toggle comment" })
 
 -- Text actions
 wkAdd({ "<leader>v", group = "Text actions" })
-map("n", "<leader>vo", "O<esc>O", { desc = "Insert two newlines above cursor" })
+map("n", "<leader>vo", "o<esc>o", { desc = "Insert two newlines below cursor" })
+map("n", "<leader>vO", "O<esc>O", { desc = "Insert two newlines above cursor" })
 map("n", "<leader>vp", "O<esc>jo<esc>k", { desc = "Pad current line with newlines above and below" })
 map("n", "<leader>vr", ":%s/\\<<c-r><c-w>\\>//g<left><left>", { desc = "Replace word under cursor" })
 
