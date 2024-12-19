@@ -24,6 +24,11 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     config = function() require("zhchay.plugins.indentblankline") end,
   },
+  -- automatically insert closing pairs
+  {
+    "windwp/nvim-autopairs",
+    opts = { disable_filetype = { "TelescopePrompt" } },
+  },
   -- scroll past the end of the buffer
   {
     "Aasim-A/scrollEOF.nvim",
