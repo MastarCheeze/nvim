@@ -4,6 +4,7 @@ local o = vim.opt
 o.number = true
 o.relativenumber = true
 o.signcolumn = "yes" -- always show sign column
+o.fillchars = { eob = " " } -- remove '~' characters from the gutter
 
 -- Indentation
 o.shiftwidth = 2
