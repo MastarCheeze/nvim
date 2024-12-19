@@ -22,6 +22,7 @@ require("zhchay.options")
 require("zhchay.keymaps")
 
 -- Setup plugins
-require("lazy").setup({ import = "zhchay/plugins" }, {
+local plugins = require("zhchay.plugins")
+require("lazy").setup(plugins, {
   change_detection = { notify = false },
 })

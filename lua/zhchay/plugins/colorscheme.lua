@@ -1,10 +1,13 @@
-return {
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    config = function()
-      require("zhchay.colorscheme")
-    end
-  }
-}
+require("catppuccin").setup({
+  flavour = "macchiato",
+  color_overrides = {
+    all = {
+      base = "#141519", -- literally unusable without this bg colour
+    },
+  },
+  integrations = {
+  },
+})
+
+vim.cmd.colorscheme("catppuccin")
+
