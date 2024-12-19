@@ -18,5 +18,10 @@ return {
     branch = "0.1.x",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function() require("zhchay.plugins.telescope") end,
-  }
+  },
+  -- indent guides
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function() require("zhchay.plugins.indentblankline") end,
+  },
 }

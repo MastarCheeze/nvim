@@ -7,8 +7,8 @@ require("catppuccin").setup({
   },
   integrations = {
     telescope = { enabled = true },
+    indent_blankline = { enabled = true, scope_color = "overlay2" },
   },
 })
 
 vim.cmd.colorscheme("catppuccin")
-
