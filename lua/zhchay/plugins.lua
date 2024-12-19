@@ -24,6 +24,12 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     config = function() require("zhchay.plugins.indentblankline") end,
   },
+  -- actions for surrounding pairs
+  {
+    "echasnovski/mini.surround",
+    version = false,
+    opts = {},
+  },
   -- automatically insert closing pairs
   {
     "windwp/nvim-autopairs",
