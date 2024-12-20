@@ -38,6 +38,17 @@ return {
     },
     config = function() require("zhchay.plugins.lsp") end,
   },
+  -- completion
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-buffer",
+      "onsails/lspkind.nvim", -- nice icons
+    },
+    config = function() require("zhchay.plugins.completion") end,
+  },
   -- better diagnostics virtual text
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
