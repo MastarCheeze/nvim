@@ -1,6 +1,6 @@
 local lualine = require("lualine")
 
-lualine.setup({ 
+lualine.setup({
   options = {
     globalstatus = true,
     section_separators = "",
@@ -24,7 +24,7 @@ lualine.setup({
       {
         "tabs",
         mode = 1,
-        symbols = { modified = "●" },
+        show_modified_status = false,
       }
     },
   },
