@@ -1,9 +1,10 @@
 local o = vim.opt
 
--- Line numbers
+-- Gutter
 o.number = true
 o.relativenumber = true
 o.signcolumn = "yes" -- always show sign column
+o.cursorline = true -- highlights the current cursor line and line number
 o.fillchars = { eob = " " } -- remove '~' characters from the gutter
 
 -- Indentation
@@ -24,6 +25,7 @@ o.ignorecase = true
 o.smartcase = true
 
 -- Misc
+o.colorcolumn = "120" -- editor ruler
 o.wrap = false -- turn off line wrap
 o.scrolloff = 8 -- always keep at least 8 lines above/below cursor
 o.clipboard = "unnamedplus" -- use system clipboard as default
