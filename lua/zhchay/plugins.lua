@@ -24,6 +24,11 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     config = function() require("zhchay.plugins.indentblankline") end,
   },
+  -- save and restore sessions
+  {
+    "rmagatti/auto-session",
+    config = function() require("zhchay.plugins.autosession") end,
+  },
   -- actions for surrounding pairs
   {
     "echasnovski/mini.surround",
