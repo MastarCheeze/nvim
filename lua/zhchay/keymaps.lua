@@ -4,10 +4,6 @@ vim.g.mapleader = " "
 -- File explorer
 map("n", "<leader>e", ":e .<cr>", { desc = "Show file explorer" })
 
--- Comments
-map("n", "<leader>/", "gcc", { remap = true, desc = "Toggle comment" })
-map("v", "<leader>/", "gc", { remap = true, desc = "Toggle comment" })
-
 -- Window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
