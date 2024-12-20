@@ -19,6 +19,30 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function() require("zhchay.plugins.telescope") end,
   },
+  -- lsp
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      {
+        "folke/lazydev.nvim", -- configure LSP for neovim config, runtime and plugins
+        ft = "lua",
+        opts = {
+          library = {
+            -- Load luvit types when the `vim.uv` word is found
+            { path = "luvit-meta/library", words = { "vim%.uv" } },
+          },
+        },
+      },
+    },
+    config = function() require("zhchay.plugins.lsp") end,
+  },
+  -- better diagnostics virtual text
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function() require("zhchay.plugins.lsp_lines") end,
+  },
   -- gitsigns
   {
     "lewis6991/gitsigns.nvim",
