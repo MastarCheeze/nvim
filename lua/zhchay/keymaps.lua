@@ -13,6 +13,8 @@ map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
+map("n", "<C-w>d", "<C-w>c", { desc = "Close window" }) -- <C-w><C-c> can't be remapped because <C-c> cancels the command
+map("n", "<C-w><C-d>", "<C-w>c", { desc = "Close window" })
 
 -- Tab navigation
 map("n", "<C-,>", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
