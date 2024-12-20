@@ -19,6 +19,11 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function() require("zhchay.plugins.telescope") end,
   },
+  -- gitsigns
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function() require("zhchay.plugins.gitsigns") end,
+  },
   -- indent guides
   {
     "lukas-reineke/indent-blankline.nvim",

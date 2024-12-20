@@ -7,6 +7,7 @@ require("catppuccin").setup({
   },
   integrations = {
     telescope = { enabled = true },
+    gitsigns = true,
     indent_blankline = { enabled = true, scope_color = "overlay2" },
   },
 })
