@@ -60,15 +60,15 @@ return {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function() require("zhchay.plugins.lsp_lines") end,
   },
-  -- gitsigns
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function() require("zhchay.plugins.gitsigns") end,
-  },
   -- indent guides
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function() require("zhchay.plugins.indentblankline") end,
+  },
+  -- gitsigns
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {},
   },
   -- save and restore sessions
   {
