@@ -12,6 +12,12 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function() require("zhchay.plugins.statusline") end,
   },
+  -- explorer
+  {
+    "echasnovski/mini.files",
+    version = false,
+    config = function() require("zhchay.plugins.explorer") end,
+  },
   -- telescope
   {
     "nvim-telescope/telescope.nvim",
