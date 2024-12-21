@@ -55,6 +55,11 @@ return {
     },
     config = function() require("zhchay.plugins.completion") end,
   },
+  -- formatter
+  {
+      "stevearc/conform.nvim",
+      config = function() require("zhchay.plugins.formatter") end,
+  },
   -- better diagnostics virtual text
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
