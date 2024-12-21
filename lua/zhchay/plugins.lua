@@ -12,6 +12,11 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function() require("zhchay.plugins.statusline") end,
   },
+  -- file explorer
+  {
+    "stevearc/oil.nvim",
+    config = function() require("zhchay.plugins.explorer") end,
+  },
   -- telescope
   {
     "nvim-telescope/telescope.nvim",
