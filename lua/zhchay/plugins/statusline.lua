@@ -14,7 +14,7 @@ lualine.setup({
         path = 1,
         symbols = {
           modified = "●",
-          readonly = "",
+          readonly = "",
         },
       },
     },
