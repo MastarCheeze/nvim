@@ -4,26 +4,34 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
-    config = function() require("zhchay.plugins.colorscheme") end,
+    config = function()
+      require("zhchay.plugins.colorscheme")
+    end,
   },
   -- statusline
   {
     "nvim-lualine/lualine.nvim",
-    config = function() require("zhchay.plugins.statusline") end,
+    config = function()
+      require("zhchay.plugins.statusline")
+    end,
   },
   -- explorer
   {
     "echasnovski/mini.files",
     version = false,
     dependencies = { "echasnovski/mini.icons" },
-    config = function() require("zhchay.plugins.explorer") end,
+    config = function()
+      require("zhchay.plugins.explorer")
+    end,
   },
   -- telescope
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function() require("zhchay.plugins.telescope") end,
+    config = function()
+      require("zhchay.plugins.telescope")
+    end,
   },
   -- lsp
   {
@@ -42,7 +50,16 @@ return {
         },
       },
     },
-    config = function() require("zhchay.plugins.lsp") end,
+    config = function()
+      require("zhchay.plugins.lsp")
+    end,
+  },
+  -- formatter
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      require("zhchay.plugins.formatter")
+    end,
   },
   -- completion
   {
@@ -53,12 +70,9 @@ return {
       "hrsh7th/cmp-buffer",
       "onsails/lspkind.nvim", -- nice icons
     },
-    config = function() require("zhchay.plugins.completion") end,
-  },
-  -- formatter
-  {
-      "stevearc/conform.nvim",
-      config = function() require("zhchay.plugins.formatter") end,
+    config = function()
+      require("zhchay.plugins.completion")
+    end,
   },
   -- treesitter
   {
@@ -67,17 +81,23 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
-    config = function() require("zhchay.plugins.treesitter") end,
+    config = function()
+      require("zhchay.plugins.treesitter")
+    end,
   },
   -- better diagnostics virtual text
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function() require("zhchay.plugins.lsp_lines") end,
+    config = function()
+      require("zhchay.plugins.lsp_lines")
+    end,
   },
   -- indent guides
   {
     "lukas-reineke/indent-blankline.nvim",
-    config = function() require("zhchay.plugins.indentblankline") end,
+    config = function()
+      require("zhchay.plugins.indentblankline")
+    end,
   },
   -- gitsigns
   {
@@ -87,12 +107,16 @@ return {
   -- save and restore sessions
   {
     "rmagatti/auto-session",
-    config = function() require("zhchay.plugins.autosession") end,
+    config = function()
+      require("zhchay.plugins.autosession")
+    end,
   },
   -- greeter
   {
     "goolord/alpha-nvim",
-    config = function() require("zhchay.plugins.greeter") end,
+    config = function()
+      require("zhchay.plugins.greeter")
+    end,
   },
   -- actions for surrounding pairs
   {
