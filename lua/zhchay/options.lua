@@ -24,11 +24,14 @@ o.splitright = true
 o.ignorecase = true
 o.smartcase = true
 
--- Misc
+-- Display
 o.colorcolumn = "120" -- editor ruler
 o.wrap = false -- turn off line wrap
 o.scrolloff = 8 -- always keep at least 8 lines above/below cursor
+
+-- Misc
 o.clipboard = "unnamedplus" -- use system clipboard as default
+o.undofile = true -- persistent undo
 
 -- Highlight text on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
