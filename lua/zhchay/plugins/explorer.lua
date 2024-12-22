@@ -20,9 +20,19 @@ require("mini.files").setup({
   },
 })
 
+require("mini.icons").setup({})
+MiniIcons.mock_nvim_web_devicons()
+
+-- Show explorer keymap
 vim.keymap.set("n", "<leader>e", function()
-  MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-  MiniFiles.reveal_cwd()
+  local bufname = vim.api.nvim_buf_get_name(0)
+  print(bufname, vim.fn.filereadable(bufname))
+  if vim.fn.filereadable(bufname) ~= 0 then
+    MiniFiles.open(bufname, false)
+    MiniFiles.reveal_cwd()
+  else
+    MiniFiles.open(nil, false)
+  end
 end, { desc = "Show file explorer" })
 
 -- Show/hide dotfiles (thanks docs recipe)
