@@ -9,13 +9,13 @@ return {
   -- statusline
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function() require("zhchay.plugins.statusline") end,
   },
   -- explorer
   {
     "echasnovski/mini.files",
     version = false,
+    dependencies = { "echasnovski/mini.icons" },
     config = function() require("zhchay.plugins.explorer") end,
   },
   -- telescope
@@ -88,6 +88,11 @@ return {
   {
     "rmagatti/auto-session",
     config = function() require("zhchay.plugins.autosession") end,
+  },
+  -- greeter
+  {
+    "goolord/alpha-nvim",
+    config = function() require("zhchay.plugins.greeter") end,
   },
   -- actions for surrounding pairs
   {

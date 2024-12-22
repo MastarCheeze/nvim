@@ -27,6 +27,7 @@ require("catppuccin").setup({
         background = true,
       },
     },
+    alpha = true,
     mason = true,
     gitsigns = true,
     indent_blankline = { enabled = true, scope_color = "overlay2" },
