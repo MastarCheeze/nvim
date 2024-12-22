@@ -30,3 +30,5 @@ lualine.setup({
     },
   },
 })
+
+vim.opt.showmode = false -- hide redundant mode indicator in command bar
