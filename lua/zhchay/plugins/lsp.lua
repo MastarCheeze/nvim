@@ -48,3 +48,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
   end
 })
+
+-- Diagnostic symbols in the gutter
+local signs = { Error = "󰅚", Warn = "󰀪", Hint = "󰌶", Info = "󰋽" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
