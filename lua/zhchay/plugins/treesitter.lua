@@ -25,6 +25,6 @@ ts.setup({
         ["ir"] = "@parameter.inner",
         ["ar"] = "@parameter.outer",
       },
-    }
-  }
+    },
+  },
 })
