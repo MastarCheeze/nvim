@@ -2,9 +2,7 @@ require("mini.files").setup({
   content = {
     -- Permanently hide files
     filter = function(fs_entry)
-      return not (
-        fs_entry.name == ".DS_Store"
-      )
+      return not (fs_entry.name == ".DS_Store")
     end,
   },
   options = {
@@ -12,8 +10,9 @@ require("mini.files").setup({
   },
   mappings = {
     close = "<esc>",
-    go_in_plus = "l",
-    go_out_plus = "h",
+    go_in_plus = "<cr>",
+    go_out_plus = "<bs>",
+    reset = "!",
   },
   windows = {
     width_focus = 30,
@@ -37,12 +36,11 @@ end, { desc = "Show file explorer" })
 
 -- Show/hide dotfiles (thanks docs recipe)
 local show_dotfiles = true
-local filter_show = function(fs_entry) return true end
+local filter_show = function(fs_entry)
+  return true
+end
 local filter_hide = function(fs_entry)
-  return not (
-    vim.startswith(fs_entry.name, ".") and
-    fs_entry.name == "node_modules"
-  )
+  return not (vim.startswith(fs_entry.name, ".") and fs_entry.name == "node_modules")
 end
 
 local toggle_dotfiles = function()
@@ -56,6 +54,6 @@ vim.api.nvim_create_autocmd("User", {
   callback = function(args)
     local buf_id = args.data.buf_id
     -- Tweak left-hand side of mapping to your liking
-    vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id })
+    vim.keymap.set("n", ".", toggle_dotfiles, { buffer = buf_id })
   end,
 })
