@@ -24,6 +24,7 @@ lualine.setup({
       {
         "tabs",
         mode = 1,
+        max_length = vim.o.columns,
         show_modified_status = false,
       }
     },
