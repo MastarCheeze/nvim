@@ -60,6 +60,15 @@ return {
       "stevearc/conform.nvim",
       config = function() require("zhchay.plugins.formatter") end,
   },
+  -- treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    config = function() require("zhchay.plugins.treesitter") end,
+  },
   -- better diagnostics virtual text
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
