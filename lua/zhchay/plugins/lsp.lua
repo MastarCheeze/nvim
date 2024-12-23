@@ -1,9 +1,31 @@
 local servers = {
-  lua_ls = {},
+  lua_ls = true,
   clangd = true,
   ts_ls = true,
   html = true,
   cssls = true,
+  texlab = true,
+
+  jsonls = {
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+        validate = { enable = true },
+      },
+    },
+  },
+
+  yamlls = {
+    settings = {
+      yaml = {
+        schemaStore = {
+          enable = false,
+          url = "",
+        },
+        schemas = require("schemastore").yaml.schemas(),
+      },
+    },
+  },
 }
 
 -- Setup LSP servers
@@ -47,7 +69,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>lo", builtin.lsp_document_symbols, { desc = "Find document symbols" })
     map({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { desc = "See all code actions" })
     map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
-  end
+  end,
 })
 
 -- Diagnostic symbols in the gutter

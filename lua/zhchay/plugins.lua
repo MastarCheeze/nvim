@@ -49,6 +49,7 @@ return {
           },
         },
       },
+      "b0o/SchemaStore.nvim",
     },
     config = function()
       require("zhchay.plugins.lsp")
