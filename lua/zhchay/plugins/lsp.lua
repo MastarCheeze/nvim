@@ -1,5 +1,6 @@
 local servers = {
   lua_ls = {},
+  clangd = true,
   ts_ls = true,
   html = true,
   cssls = true,
