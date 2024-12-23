@@ -7,10 +7,10 @@ local lspkind_formatter = lspkind.cmp_format({
   maxwidth = { abbr = 30 },
   ellipsis_char = "…",
   menu = {
-    lazydev = "[lzy]",
-    nvim_lsp = "[LSP]",
-    path = "[pth]",
-    buffer = "[buf]",
+    lazydev = "[lazy]",
+    nvim_lsp = " [LSP]",
+    luasnip = "[snip]",
+    path = "[path]",
   },
 })
 
@@ -21,6 +21,7 @@ cmp.setup({
       group_index = 0, -- set group index to 0 to skip loading LuaLS completions
     },
     { name = "nvim_lsp" },
+    { name = "luasnip" },
     { name = "path" },
   }, {
     { name = "buffer" },
@@ -39,6 +40,11 @@ cmp.setup({
     format = function(entry, vim_item)
       vim_item = lspkind_formatter(entry, vim_item)
       return vim_item
+    end,
+  },
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
 })
