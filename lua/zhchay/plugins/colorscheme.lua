@@ -1,8 +1,10 @@
 require("catppuccin").setup({
-  flavour = "macchiato",
+  flavour = "mocha",
   color_overrides = {
     all = {
-      base = "#141519", -- literally unusable without this bg colour
+      base = "#12121C", -- darker bg colours (hsl lightness -6)
+      mantle = "#0C0C13",
+      crust = "#060609",
     },
   },
   integrations = {
