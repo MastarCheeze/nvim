@@ -17,9 +17,13 @@ return {
   },
   -- explorer
   {
-    "echasnovski/mini.files",
-    version = false,
-    dependencies = { "echasnovski/mini.icons" },
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "echasnovski/mini.icons",
+    },
     config = function()
       require("zhchay.plugins.explorer")
     end,

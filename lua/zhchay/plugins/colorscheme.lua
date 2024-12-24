@@ -27,6 +27,7 @@ require("catppuccin").setup({
         background = true,
       },
     },
+    neotree = true,
     alpha = true,
     mason = true,
     gitsigns = true,
