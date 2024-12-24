@@ -49,22 +49,10 @@ return {
           },
         },
       },
+      "b0o/SchemaStore.nvim",
     },
     config = function()
       require("zhchay.plugins.lsp")
-    end,
-  },
-  -- completion
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-buffer",
-      "onsails/lspkind.nvim", -- nice icons
-    },
-    config = function()
-      require("zhchay.plugins.completion")
     end,
   },
   -- formatter
@@ -72,6 +60,28 @@ return {
     "stevearc/conform.nvim",
     config = function()
       require("zhchay.plugins.formatter")
+    end,
+  },
+  -- completion
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp", -- sources
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-buffer",
+      "saadparwaiz1/cmp_luasnip",
+      "onsails/lspkind.nvim", -- nice icons
+    },
+    config = function()
+      require("zhchay.plugins.completion")
+    end,
+  },
+  -- snippets
+  {
+    "L3MON4D3/LuaSnip",
+    build = "make install_jsregexp",
+    config = function()
+      require("zhchay.plugins.snippets")
     end,
   },
   -- treesitter
