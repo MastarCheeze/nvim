@@ -1,4 +1,10 @@
-require("conform").setup({
+local conform = require("conform")
+
+conform.formatters.prettier = {
+  prepend_args = { "--prose-wrap=always" }, -- for markdown line wrap
+}
+
+conform.setup({
   formatters_by_ft = {
     lua = { "stylua" },
     javascript = { "prettier" },
