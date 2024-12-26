@@ -15,11 +15,11 @@ vim.keymap.set("i", "<C-k>", function()
   ls.expand()
 end, { silent = true, desc = "Expand snippet" })
 
-vim.keymap.set({ "i", "s" }, "<C-n>", function()
+vim.keymap.set({ "i", "s" }, "<C-l>", function()
   ls.jump(1)
 end, { silent = true, desc = "Jump to next snippet item" })
 
-vim.keymap.set({ "i", "s" }, "<C-p>", function()
+vim.keymap.set({ "i", "s" }, "<C-h>", function()
   ls.jump(-1)
 end, { silent = true, desc = "Jump to previous snippet item" })
 

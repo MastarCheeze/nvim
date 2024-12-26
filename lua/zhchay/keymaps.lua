@@ -17,10 +17,10 @@ map("n", "<C-,>", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
 map("n", "<C-.>", "<cmd>tabnext<cr>", { desc = "Next tab" })
 
 -- Custom text-editing actions
+map({ "n", "v" }, "<leader>d", '"_d', { noremap = true, desc = "Delete to void register" })
 map("n", "<leader>vo", "o<esc>o", { desc = "Insert two newlines below cursor" })
 map("n", "<leader>vO", "O<esc>O", { desc = "Insert two newlines above cursor" })
 map("n", "<leader>vp", "O<esc>jo<esc>k", { desc = "Pad current line with newlines above and below" })
-map({ "n", "v" }, "<leader>vd", '"_d', { noremap = true, desc = "Delete to void register" })
 
 -- Settings
 map("n", "<leader>'n", "<cmd>set relativenumber!<cr>", { desc = "Toggle relative line number" })
