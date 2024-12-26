@@ -1,19 +1,4 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdlib>
-#include <deque>
-#include <functional>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <tuple>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -23,15 +8,13 @@ using namespace std;
 
 #define ll long long
 typedef vector<int> vi; 
-typedef vector<vector<int>> vvi;
 typedef vector<long long> vll;
-typedef vector<vector<long long>> vvll;
 
-#ifndef DEBUG
+#ifdef DEBUG
 #define PRINT(a) cerr << a << endl;
 #define LOG(a) cerr << __LINE__ << " | " << #a << " = " << a << endl
-#define LOGARR(a, n) cerr << __LINE__ << " | " << #a << " = [ "; for (size_t i = 0; i < (n); i++) cout << a[i] << " "; cout << "]" << endl
-#define LOGVEC(a) cerr << __LINE__ << " | " << #a << " = [ "; for (auto i : a) cout << i << " "; cout << "]" << endl
+#define LOGARR(a, n) cerr << __LINE__ << " | " << #a << " = [ "; for (int xxx = 0; xxx < (n); xxx++) cout << a[xxx] << " "; cout << "]" << endl
+#define LOGITER(a) cerr << __LINE__ << " | " << #a << " = [ "; for (auto xxx : a) cout << xxx << " "; cout << "]" << endl
 #else
 #define PRINT(...)
 #define LOG(...)

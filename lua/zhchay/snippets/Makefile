@@ -1,4 +1,6 @@
+CC = /usr/local/bin/g++-14
 SRC ?= main.cpp
+OUT ?= main
 
-main: $(SRC)
-	g++ $(SRC) -std=c++17 -Wall -O2 -o out
+$(OUT): $(SRC)
+	$(CC) $(SRC) -std=c++17 -Wall -O2 -DDEBUG -o $(OUT)
