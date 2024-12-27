@@ -6,6 +6,7 @@ local servers = {
   emmet_language_server = true,
   cssls = true,
   texlab = true,
+  vimls = true,
 
   jsonls = {
     settings = {
