@@ -20,7 +20,14 @@ starter.setup({
           },
           opts = {
             position = "center",
-            hl = "AlphaHeader",
+            hl = (function()
+              local tbl = {}
+              local sub_tbl = { { "AlphaHeader1", 0, 32 }, { "AlphaHeader2", 32, -1 } }
+              for _ = 1, 7 do
+                table.insert(tbl, sub_tbl)
+              end
+              return tbl
+            end)(),
           },
         },
         {
@@ -33,6 +40,6 @@ starter.setup({
         },
       },
       opts = { spacing = 2 },
-    }
+    },
   },
 })

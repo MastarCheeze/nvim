@@ -7,6 +7,12 @@ require("catppuccin").setup({
       crust = "#060609",
     },
   },
+  custom_highlights = function(colours)
+    return {
+      AlphaHeader1 = { fg = colours.blue, style = { "bold" } },
+      AlphaHeader2 = { fg = colours.green, style = { "bold" } },
+    }
+  end,
   integrations = {
     telescope = { enabled = true },
     native_lsp = {
