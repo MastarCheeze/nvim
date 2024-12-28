@@ -2,17 +2,21 @@ require("catppuccin").setup({
   flavour = "mocha",
   color_overrides = {
     all = {
-      base = "#12121C", -- darker bg colours (hsl lightness -6)
-      mantle = "#0C0C13",
-      crust = "#060609",
+      base = "#12121C", -- darker bg colours
+      mantle = "#060609",
+      crust = "#000000",
     },
   },
   custom_highlights = function(colours)
     return {
       AlphaHeader1 = { fg = colours.blue, style = { "bold" } },
       AlphaHeader2 = { fg = colours.green, style = { "bold" } },
+      -- set neotree background to base
+      NeoTreeNormal = { fg = colours.text, bg = colours.base },
+      NeoTreeNormalNC = { fg = colours.text, bg = colours.base },
     }
   end,
+  default_integrations = false,
   integrations = {
     telescope = { enabled = true },
     native_lsp = {
@@ -35,6 +39,7 @@ require("catppuccin").setup({
         background = true,
       },
     },
+    cmp = true,
     neotree = true,
     alpha = true,
     mason = true,
