@@ -16,7 +16,6 @@ map("n", "<leader>?", builtin.help_tags, { desc = "Telescope help tags" })
 map("n", "<leader>\\", builtin.builtin, { desc = "Telescope all pickers" })
 
 -- Dim background when picker is open
--- CONFIG
 local blend = 50
 
 vim.api.nvim_create_autocmd("FileType", {
