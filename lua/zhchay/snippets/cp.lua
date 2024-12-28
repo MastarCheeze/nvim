@@ -5,7 +5,8 @@ local t = ls.text_node
 local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
-local cp_template_path = vim.fs.normalize("~/.config/nvim/lua/zhchay/snippets/template.cpp")
+-- C++ snippets
+local cp_template_path = vim.fs.normalize("~/cp/template.cpp")
 local cp_snippet = nil
 
 if vim.fn.filereadable(cp_template_path) == 0 then
@@ -31,9 +32,27 @@ vim.api.nvim_create_user_command("CPNew", function(opts)
   vim.fn.writefile({}, dir .. "/main.cpp")
   vim.fn.writefile({}, dir .. "/data")
 
-  vim.cmd("edit " .. dir .. "/main.cpp | only")
-  vim.cmd("vnew | edit " .. dir .. "/data")
-  vim.cmd("vertical resize 44")
-  vim.cmd("wincmd h")
+  vim.cmd("silent edit " .. dir .. "/main.cpp | only")
+  vim.cmd("silent vnew | edit " .. dir .. "/data")
+  vim.cmd("silent vertical resize 44")
+  vim.cmd("silent wincmd h")
   ls.snip_expand(cp_snippet)
 end, { nargs = 1 })
+
+-- Makefile snippets
+local cp_makefile_path = vim.fs.normalize("~/cp/Makefile")
+
+if vim.fn.filereadable(cp_makefile_path) == 0 then
+  vim.notify("CP template " .. cp_makefile_path .. " does not exist.")
+else
+  local f = assert(io.open(cp_makefile_path, "rb"))
+  local template = f:read("*all")
+  f:close()
+
+  template = template:gsub("{", "{{")
+  template = template:gsub("}", "}}")
+
+  ls.add_snippets("make", {
+    s("cp", fmt(template, {})),
+  })
+end
