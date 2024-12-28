@@ -10,7 +10,7 @@ MiniIcons.mock_nvim_web_devicons()
 -- Setup
 require("neo-tree").setup({
   sources = { "filesystem" }, -- enabled sources
-  popup_border_style = "single",
+  popup_border_style = "rounded",
   use_default_mappings = false,
   window = {
     position = "current",

@@ -42,6 +42,10 @@ cmp.setup({
       return vim_item
     end,
   },
+  window = {
+    completion = { border = "rounded" },
+    documentation = { border = "rounded" },
+  },
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body) -- For `luasnip` users.

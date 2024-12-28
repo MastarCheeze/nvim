@@ -32,20 +32,33 @@ local servers = {
 
 -- Setup LSP servers
 local lspconfig = require("lspconfig")
-require("mason").setup()
+require("mason").setup({ ui = { border = "rounded" } })
 require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
 require("lazydev").setup({})
 
+-- Autocompletion capabilities
 local capabilities = nil
 if pcall(require, "cmp_nvim_lsp") then
   capabilities = require("cmp_nvim_lsp").default_capabilities()
 end
 
+-- Hover and signature popup window handlers
+local handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    max_width = 64,
+    border = "rounded",
+  }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    max_width = 64,
+    border = "rounded",
+  }),
+}
+
 for name, config in pairs(servers) do
   if config == true then
     config = {}
   end
-  config = vim.tbl_deep_extend("force", {}, { capabilities = capabilities }, config)
+  config = vim.tbl_deep_extend("force", {}, { capabilities = capabilities, handlers = handlers }, config)
 
   lspconfig[name].setup(config)
 end
