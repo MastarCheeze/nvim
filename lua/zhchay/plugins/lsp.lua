@@ -60,17 +60,39 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
     local builtin = require("telescope.builtin")
 
+    -- LSP find and go to hovered symbol
     map("n", "gd", builtin.lsp_definitions, { desc = "Find definitions" })
     map("n", "gr", builtin.lsp_references, { desc = "Find references" })
     map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
     map("n", "gT", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
 
+    -- Documentation
     map("n", "K", vim.lsp.buf.hover, { desc = "Show documentation" })
-    map({ "n", "i" }, "<C-s>", vim.lsp.buf.signature_help, { desc = "Show signature docs" })
+    map({ "n", "i" }, "<C-s>", vim.lsp.buf.signature_help, { desc = "Show signature documentation" })
 
+    -- LSP actions
     map("n", "<leader>lo", builtin.lsp_document_symbols, { desc = "Find document symbols" })
     map({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { desc = "See all code actions" })
     map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
+
+    map("n", "<leader>ll", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+    map("n", "<leader>ld", "<cmd>FzfLua diagnostics_document<cr>", { desc = "Show buffer diagnostics" })
+    map("n", "]d", function()
+      local jump = vim.diagnostic.get_next()
+      vim.diagnostic.goto_next({ float = true })
+      if jump then
+        vim.cmd("normal! zz")
+      end
+      -- vim.diagnostic.jump({ count = 1, float = true }) -- use these in 0.11
+    end, { desc = "Next diagnostic" })
+    map("n", "[d", function()
+      local jump = vim.diagnostic.get_prev()
+      vim.diagnostic.goto_prev({ float = true })
+      if jump then
+        vim.cmd("normal! zz")
+      end
+      -- vim.diagnostic.jump({ count = -1, float = true }) -- use these in 0.11
+    end, { desc = "Previous diagnostic" })
   end,
 })
 
