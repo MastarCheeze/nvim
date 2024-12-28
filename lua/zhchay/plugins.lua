@@ -99,13 +99,6 @@ return {
       require("zhchay.plugins.treesitter")
     end,
   },
-  -- better diagnostics virtual text
-  {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("zhchay.plugins.lsp_lines")
-    end,
-  },
   -- indent guides
   {
     "lukas-reineke/indent-blankline.nvim",
