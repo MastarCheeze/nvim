@@ -21,6 +21,7 @@ map({ "n", "v" }, "<leader>d", '"_d', { noremap = true, desc = "Delete to void r
 map("n", "<leader>vo", "o<esc>o", { desc = "Insert two newlines below cursor" })
 map("n", "<leader>vO", "O<esc>O", { desc = "Insert two newlines above cursor" })
 map("n", "<leader>vp", "O<esc>jo<esc>k", { desc = "Pad current line with newlines above and below" })
+map("n", "<leader>va", "ggVG", { desc = "Select entire buffer" })
 
 -- Settings
 map("n", "<leader>'n", "<cmd>set relativenumber!<cr>", { desc = "Toggle relative line number" })
