@@ -31,8 +31,6 @@ map("n", "<leader>vp", "O<esc>jo<esc>k", { desc = "Pad with newlines above and b
 map("n", "<leader>va", "ggVG", { desc = "Select entire buffer" })
 map("n", "<leader>vr", ":%s/", { desc = "Replace text" })
 
--- Settings
-map("n", "<leader>'n", "<cmd>set relativenumber!<cr>", { desc = "Toggle relative line number" })
 -- Sourcing files
 map("n", "<leader><leader>x", "<cmd>w<cr><cmd>source %<cr>", { desc = "Execute the current file" })
 map("n", "<leader><leader>X", "<cmd>.lua<cr>", { desc = "Execute the current line" })

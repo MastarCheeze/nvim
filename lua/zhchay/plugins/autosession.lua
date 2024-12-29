@@ -3,4 +3,4 @@ require("auto-session").setup({
   bypass_save_filetypes = { "alpha" },
 })
 
-vim.keymap.set("n", "<leader>'r", "<cmd>SessionRestore<cr>", { desc = "Restore previous session" })
+vim.keymap.set("n", "<leader><leader>r", "<cmd>SessionRestore<cr>", { desc = "Restore previous session" })
