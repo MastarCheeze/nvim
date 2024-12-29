@@ -1,9 +1,17 @@
 require("telescope").setup({
   defaults = {
+    file_ignore_patterns = {
+      ".git/",
+    },
     mappings = {
       i = {
         ["<C-y>"] = require("telescope.actions").select_default,
       },
+    },
+  },
+  pickers = {
+    find_files = {
+      hidden = true,
     },
   },
 })
