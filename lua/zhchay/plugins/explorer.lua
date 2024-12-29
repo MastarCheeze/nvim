@@ -66,6 +66,7 @@ require("neo-tree").setup({
       },
     },
     filtered_items = {
+      visible = true,
       hide_dotfiles = true,
       hide_gitignored = true,
       hide_by_pattern = {
