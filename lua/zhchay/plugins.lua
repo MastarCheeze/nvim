@@ -109,7 +109,9 @@ return {
   -- gitsigns
   {
     "lewis6991/gitsigns.nvim",
-    opts = {},
+    config = function()
+      require("zhchay.plugins.gitsigns")
+    end,
   },
   -- save and restore sessions
   {
