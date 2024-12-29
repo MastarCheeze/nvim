@@ -110,6 +110,28 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+-- Diagnostic popup window
+local setting = require("zhchay.settings").diagnostic_source
+vim.keymap.set("n", "<leader>'d", setting.toggle, { desc = "Toggle " .. setting.desc })
+
+vim.diagnostic.config({
+  virtual_text = { prefix = "" },
+  float = {
+    header = "",
+    format = function(diagnostic)
+      local source = ""
+      if setting.value and diagnostic.source ~= nil then
+        source = diagnostic.source
+        ---@diagnostic disable-next-line: need-check-nil, cast-local-type
+        source = source:sub(-1) == "." and source:sub(1, -2) or source
+        source = " <" .. source .. ">"
+      end
+      return diagnostic.message .. source
+    end,
+    border = "rounded",
+  },
+})
+
 -- Diagnostic symbols in the gutter
 local signs = { Error = "󰅚", Warn = "󰀪", Hint = "󰌶", Info = "󰋽" }
 for type, icon in pairs(signs) do
