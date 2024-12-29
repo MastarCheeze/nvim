@@ -3,7 +3,7 @@ local lspkind = require("lspkind")
 
 vim.opt.pumheight = 25 -- completion window max height
 local lspkind_formatter = lspkind.cmp_format({
-  mode = "symbol",
+  mode = "symbol_text",
   maxwidth = { abbr = 30 },
   ellipsis_char = "…",
   menu = {
@@ -30,12 +30,12 @@ cmp.setup({
     ["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
     ["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
     ["<C-space>"] = cmp.mapping.complete(), -- show completion suggestions
-    ["<C-y>"] = cmp.mapping.confirm({ select = false }),
+    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
   }),
   formatting = {
-    fields = { "kind", "abbr", "menu" },
+    fields = { "abbr", "kind", "menu" },
     expandable_indicator = true,
     format = function(entry, vim_item)
       vim_item = lspkind_formatter(entry, vim_item)
@@ -43,8 +43,8 @@ cmp.setup({
     end,
   },
   window = {
-    completion = { border = "rounded" },
-    documentation = { border = "rounded" },
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   snippet = {
     expand = function(args)
