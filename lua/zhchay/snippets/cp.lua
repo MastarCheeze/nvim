@@ -6,7 +6,7 @@ local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 -- C++ snippets
-local cp_template_path = vim.fs.normalize("~/cp/template.cpp")
+local cp_template_path = vim.fs.normalize("~/templates/cp/template.cpp")
 local cp_snippet = nil
 
 if vim.fn.filereadable(cp_template_path) == 0 then
@@ -40,7 +40,7 @@ vim.api.nvim_create_user_command("CPNew", function(opts)
 end, { nargs = 1 })
 
 -- Makefile snippets
-local cp_makefile_path = vim.fs.normalize("~/cp/Makefile")
+local cp_makefile_path = vim.fs.normalize("~/templates/cp/Makefile")
 
 if vim.fn.filereadable(cp_makefile_path) == 0 then
   vim.notify("CP template " .. cp_makefile_path .. " does not exist.")
