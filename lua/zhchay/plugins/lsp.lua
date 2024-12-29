@@ -7,6 +7,7 @@ local servers = {
   cssls = true,
   texlab = true,
   vimls = true,
+  dockerls = true,
 
   jsonls = {
     settings = {
