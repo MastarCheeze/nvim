@@ -1,3 +1,13 @@
+require("telescope").setup({
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-y>"] = require("telescope.actions").select_default,
+      },
+    },
+  },
+})
+
 -- Keymaps
 local map = vim.keymap.set
 local builtin = require("telescope.builtin")
