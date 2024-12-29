@@ -9,6 +9,8 @@ require("catppuccin").setup({
   },
   custom_highlights = function(colours)
     return {
+      WinSeparator = { fg = colours.overlay0 },
+      -- duotone neovim greeter header
       AlphaHeader1 = { fg = colours.blue, style = { "bold" } },
       AlphaHeader2 = { fg = colours.green, style = { "bold" } },
       -- set neotree background to base
