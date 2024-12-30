@@ -16,6 +16,11 @@ o.autoindent = true
 o.smartindent = true
 o.cindent = true
 
+-- Disable comment continuation on newlines
+o.formatoptions:remove("c")
+o.formatoptions:remove("r")
+o.formatoptions:remove("o")
+
 -- Window splitting
 o.splitbelow = true
 o.splitright = true
