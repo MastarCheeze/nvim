@@ -20,8 +20,8 @@ map("n", "<C-t>t", "<cmd>tabnew<cr>", { desc = "New tab" })
 map("n", "<C-t><C-t>", "<cmd>tabnew<cr>", { desc = "New tab" })
 map("n", "<C-t>d", "<cmd>tabclose<cr>", { desc = "Close tab" })
 map("n", "<C-t><C-d>", "<cmd>tabclose<cr>", { desc = "Close tab" })
-map("n", "<C-]>", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
-map("n", "<C-[>", "<cmd>tabnext<cr>", { desc = "Next tab" })
+map("n", "<C-[>", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
+map("n", "<C-]>", "<cmd>tabnext<cr>", { desc = "Next tab" })
 
 -- Custom text-editing actions
 map({ "n", "v" }, "<leader>d", '"_d', { noremap = true, desc = "Delete to void register" })
