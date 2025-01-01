@@ -46,11 +46,11 @@ end
 -- Hover and signature popup window handlers
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    max_width = 64,
+    max_width = 120,
     border = "rounded",
   }),
   ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    max_width = 64,
+    max_width = 120,
     border = "rounded",
   }),
 }
