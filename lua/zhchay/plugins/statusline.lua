@@ -8,6 +8,11 @@ lualine.setup({
     always_show_tabline = false,
   },
   sections = {
+    lualine_b = {
+      { "branch", icon = "󰘬" },
+      "diff",
+      "diagnostics",
+    },
     lualine_c = {
       {
         "filename",
@@ -26,7 +31,7 @@ lualine.setup({
         mode = 1,
         max_length = vim.o.columns,
         show_modified_status = false,
-      }
+      },
     },
   },
 })
