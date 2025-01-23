@@ -17,9 +17,14 @@ o.smartindent = true
 o.cindent = true
 
 -- Disable comment continuation on newlines
-o.formatoptions:remove("c")
-o.formatoptions:remove("r")
-o.formatoptions:remove("o")
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  group = vim.api.nvim_create_augroup("CommentFormatOpt", { clear = true }),
+  callback = function()
+    o.formatoptions:remove("c")
+    o.formatoptions:remove("r")
+    o.formatoptions:remove("o")
+  end,
+})
 
 -- Window splitting
 o.splitbelow = true
@@ -37,6 +42,7 @@ o.scrolloff = 8 -- always keep at least 8 lines above/below cursor
 -- Misc
 o.clipboard = "unnamedplus" -- use system clipboard as default
 o.undofile = true -- persistent undo
+o.mousemodel = "extend" -- disable the right click mouse menu
 
 -- Highlight text on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
