@@ -1,6 +1,7 @@
 local servers = {
   lua_ls = true,
   clangd = true,
+  pyright = true,
   ts_ls = true,
   html = true,
   emmet_language_server = true,

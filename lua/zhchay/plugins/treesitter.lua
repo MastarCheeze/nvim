@@ -7,6 +7,7 @@ ts.setup({
     "c",
     "cpp",
     "cmake",
+    "python",
     "typescript",
     "javascript",
     "html",
