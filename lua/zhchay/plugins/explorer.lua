@@ -1,7 +1,12 @@
 local map = vim.keymap.set
 
 -- Keymaps
-map("n", "<leader>e", "<cmd>Neotree position=current reveal<cr>", { noremap = true, silent = true, desc = "Show file explorer" })
+map(
+  "n",
+  "<leader>e",
+  "<cmd>Neotree position=current reveal<cr>",
+  { noremap = true, silent = true, desc = "Show file explorer" }
+)
 
 -- Icons
 require("mini.icons").setup()
@@ -158,33 +163,7 @@ require("neo-tree").setup({
     last_modified = {
       enabled = true,
       width = 15,
-      format = function(seconds)
-        local now = os.time()
-        local diff = now - seconds
-
-        local function pluralise(value, unit)
-          return value .. " " .. unit .. (value == 1 and "" or "s") .. " ago"
-        end
-
-        if diff < 60 then
-          return "Just now"
-        elseif diff < 3600 then
-          local minutes = math.floor(diff / 60)
-          return pluralise(minutes, "minute")
-        elseif diff < 86400 then
-          local hours = math.floor(diff / 3600)
-          return pluralise(hours, "hour")
-        elseif diff < 86400 * 30 then
-          local days = math.floor(diff / 86400)
-          return pluralise(days, "day")
-        elseif diff < 86400 * 365 then
-          local months = math.floor(diff / (86400 * 30))
-          return pluralise(months, "month")
-        else
-          local years = math.floor(diff / (86400 * 365))
-          return pluralise(years, "year")
-        end
-      end,
+      format = require("neo-tree.utils").relative_date,
     },
     type = { enabled = true },
     created = { enabled = false },
