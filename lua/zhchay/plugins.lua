@@ -15,18 +15,6 @@ return {
       require("zhchay.plugins.statusline")
     end,
   },
-  -- explorer
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "echasnovski/mini.icons",
-    },
-    config = function()
-      require("zhchay.plugins.explorer")
-    end,
-  },
   -- file explorer
   {
     "stevearc/oil.nvim",
