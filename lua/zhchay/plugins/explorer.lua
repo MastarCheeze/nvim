@@ -1,3 +1,8 @@
+-- Icons
+require("mini.icons").setup()
+MiniIcons.mock_nvim_web_devicons()
+
+-- Explorer
 require("oil").setup({
   delete_to_trash = true,
   view_options = {

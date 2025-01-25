@@ -18,7 +18,10 @@ return {
   -- file explorer
   {
     "stevearc/oil.nvim",
-    config = function() require("zhchay.plugins.explorer") end,
+    dependencies = { "echasnovski/mini.icons" },
+    config = function()
+      require("zhchay.plugins.explorer")
+    end,
   },
   -- telescope
   {
