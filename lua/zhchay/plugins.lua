@@ -27,6 +27,11 @@ return {
       require("zhchay.plugins.explorer")
     end,
   },
+  -- file explorer
+  {
+    "stevearc/oil.nvim",
+    config = function() require("zhchay.plugins.explorer") end,
+  },
   -- telescope
   {
     "nvim-telescope/telescope.nvim",
