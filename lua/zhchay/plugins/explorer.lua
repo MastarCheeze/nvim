@@ -81,6 +81,7 @@ require("neo-tree").setup({
       },
       never_show_by_pattern = { -- uses glob style patterns
         ".DS_Store",
+        "__pycache__",
       },
       show_hidden_count = false,
     },
