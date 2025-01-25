@@ -3,7 +3,7 @@ require("oil").setup({
   view_options = {
     show_hidden = true,
     is_always_hidden = function(name, _)
-      local always_hidden = { ".DS_Store" }
+      local always_hidden = { ".DS_Store", "__pycache__" }
       return vim.tbl_contains(always_hidden, name)
     end,
   },
