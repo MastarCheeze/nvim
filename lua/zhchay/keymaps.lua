@@ -21,8 +21,10 @@ map({ "n", "i", "v" }, "<C-t>t", "<cmd>tabnew<cr>", { desc = "New tab" })
 map({ "n", "i", "v" }, "<C-t><C-t>", "<cmd>tabnew<cr>", { desc = "New tab" })
 map({ "n", "i", "v" }, "<C-t>d", "<cmd>tabclose<cr>", { desc = "Close tab" })
 map({ "n", "i", "v" }, "<C-t><C-d>", "<cmd>tabclose<cr>", { desc = "Close tab" })
-map({ "n", "v" }, "<C-[>", "<cmd>tabprevious<cr>", { desc = "Previous tab" }) -- can't set insert mdoe for this because issue with tmux (^[ is the escape sequence)
-map({ "n", "i", "v" }, "<C-]>", "<cmd>tabnext<cr>", { desc = "Next tab" })
+map({ "n", "v" }, "<C-t>p", "<cmd>tabprevious<cr>", { desc = "Previous tab" }) -- can't set insert mdoe for this because issue with tmux (^[ is the escape sequence)
+map({ "n", "v" }, "<C-t><C-p>", "<cmd>tabprevious<cr>", { desc = "Previous tab" }) -- can't set insert mdoe for this because issue with tmux (^[ is the escape sequence)
+map({ "n", "i", "v" }, "<C-t>n", "<cmd>tabnext<cr>", { desc = "Next tab" })
+map({ "n", "i", "v" }, "<C-t><C-n>", "<cmd>tabnext<cr>", { desc = "Next tab" })
 
 -- Custom text-editing actions
 map({ "n", "v" }, "<leader>d", '"_d', { noremap = true, desc = "Delete to void register" })
