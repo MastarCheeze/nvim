@@ -129,22 +129,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Diagnostic popup window
-local setting = require("zhchay.settings").diagnostic_source
-setting.set_keymap("<leader>'d")
-
 vim.diagnostic.config({
   severity_sort = true,
   virtual_text = { prefix = "" },
   float = {
     header = "",
     format = function(diagnostic)
-      local source = ""
-      if setting.value and diagnostic.source ~= nil then
-        source = diagnostic.source
-        ---@diagnostic disable-next-line: need-check-nil, cast-local-type
-        source = source:sub(-1) == "." and source:sub(1, -2) or source
-        source = " <" .. source .. ">"
-      end
+      local source = diagnostic.source or ""
+      source = source:sub(-1) == "." and source:sub(1, -2) or source
+      source = " <" .. source .. ">"
       return diagnostic.message .. source
     end,
     border = "rounded",
