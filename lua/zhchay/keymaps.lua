@@ -6,7 +6,7 @@ map("n", "<leader>w", "<cmd>w<cr>", { desc = "Write buffer" })
 map("n", "<leader>W", "<cmd>wa<cr>", { desc = "Write all buffer" })
 
 -- File explorer
-map("n", "<leader>e", ":e .<cr>", { silent = true, desc = "Show file explorer" })
+map("n", "<leader>e", ":Oil<cr>", { silent = true, desc = "Show file explorer" })
 
 -- Window navigation
 map({ "n", "i", "v" }, "<C-h>", "<C-w>h", { desc = "Move to left window" })
