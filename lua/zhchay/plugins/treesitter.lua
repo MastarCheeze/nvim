@@ -21,17 +21,24 @@ ts.setup({
   },
   auto_install = false,
   highlight = { enable = true },
-  indent = { enable = true },
+  indent = { enable = false },
   textobjects = {
     select = {
       enable = true,
       lookahead = true,
       keymaps = {
-        ["ib"] = "@block.inner",
-        ["ab"] = "@block.outer",
         ["ir"] = "@parameter.inner",
         ["ar"] = "@parameter.outer",
+        ["ib"] = "@block.inner",
+        ["ab"] = "@block.outer",
       },
+      selection_modes = {
+        ["@parameter.inner"] = "v", -- charwise
+        ["@parameter.outer"] = "v", -- charwise
+        ["@block.inner"] = "V", -- linewise
+        ["@block.outer"] = "V", -- linewise
+      },
+      include_surrounding_whitespace = true,
     },
   },
 })
