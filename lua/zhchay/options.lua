@@ -17,7 +17,8 @@ o.smartindent = true
 o.cindent = true
 
 -- Disable comment continuation on newlines
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+vim.api.nvim_create_autocmd("BufEnter", {
+  desc = "Disable comment continuation on newlines",
   group = vim.api.nvim_create_augroup("CommentFormatOpt", { clear = true }),
   callback = function()
     o.formatoptions:remove("c")
@@ -47,7 +48,22 @@ o.mousemodel = "extend" -- disable the right click mouse menu
 -- Highlight text on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight selection on yank",
+  group = vim.api.nvim_create_augroup("TextYankHighlight", { clear = true }),
   callback = function()
     vim.highlight.on_yank({ higroup = "Visual", timeout = 150 })
   end,
 })
+
+-- Register some filetypes
+local register_filetype = function(pattern, filetype, syntax)
+  vim.api.nvim_create_autocmd({ "BufRead", "BufEnter" }, {
+    desc = "Register filetypes",
+    group = vim.api.nvim_create_augroup("RegisterFiletypes", { clear = true }),
+    pattern = pattern,
+    callback = function()
+      o.filetype = filetype
+      o.syntax = syntax
+    end,
+  })
+end
+register_filetype("*.njk", "njk", "html")
