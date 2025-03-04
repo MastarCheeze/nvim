@@ -10,7 +10,7 @@ conform.setup({
     python = { "black" },
     javascript = { "prettier" },
     typescript = { "prettier" },
-    html = { "prettier" },
+    -- html = { "prettier" },
     css = { "prettier" },
     json = { "prettier" },
     yaml = { "prettier" },

@@ -3,8 +3,25 @@ local servers = {
   clangd = true,
   pyright = true,
   ts_ls = true,
-  html = true,
-  emmet_language_server = true,
+  html = {
+    filetypes = { "html", "templ", "njk" },
+  },
+  emmet_language_server = {
+    filetypes = {
+      "css",
+      "eruby",
+      "html",
+      "htmldjango",
+      "javascriptreact",
+      "less",
+      "pug",
+      "sass",
+      "scss",
+      "typescriptreact",
+      "htmlangular",
+      "njk",
+    },
+  },
   cssls = true,
   texlab = true,
   vimls = true,
@@ -113,9 +130,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Diagnostic popup window
 local setting = require("zhchay.settings").diagnostic_source
-vim.keymap.set("n", "<leader>'d", setting.toggle, { desc = "Toggle " .. setting.desc })
+setting.set_keymap("<leader>'d")
 
 vim.diagnostic.config({
+  severity_sort = true,
   virtual_text = { prefix = "" },
   float = {
     header = "",
