@@ -1,11 +1,10 @@
+-- All LSP servers installed using Mason will be automatically loaded by mason-lspconfig
+-- Any extra configuration for LSP servers can be specified here
 local servers = {
-  lua_ls = nil,
-  clangd = nil,
-  pyright = nil,
-  ts_ls = nil,
   html = {
     filetypes = { "html", "templ", "njk" },
   },
+
   emmet_language_server = {
     filetypes = {
       "css",
@@ -22,10 +21,6 @@ local servers = {
       "njk",
     },
   },
-  cssls = nil,
-  texlab = nil,
-  vimls = nil,
-  dockerls = nil,
 
   jsonls = {
     settings = {
