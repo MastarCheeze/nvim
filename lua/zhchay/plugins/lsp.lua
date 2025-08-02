@@ -124,14 +124,22 @@ vim.diagnostic.config({
       return diagnostic.message .. source
     end,
   },
+  -- Diagnostic symbols in the gutter
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅚",
+      [vim.diagnostic.severity.WARN] = "󰀪",
+      [vim.diagnostic.severity.HINT] = "󰌶",
+      [vim.diagnostic.severity.INFO] = "󰋽",
+    },
+    linehl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+    }
+  }
 })
-
--- Diagnostic symbols in the gutter
-local signs = { Error = "󰅚", Warn = "󰀪", Hint = "󰌶", Info = "󰋽" }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
 
 -- Command to print all attached clients
 local function get_attached_clients()
