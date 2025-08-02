@@ -44,6 +44,7 @@ o.scrolloff = 8 -- always keep at least 8 lines above/below cursor
 o.clipboard = "unnamedplus" -- use system clipboard as default
 o.undofile = true -- persistent undo
 o.mousemodel = "extend" -- disable the right click mouse menu
+o.winborder = "rounded" -- set border on popups like signature help and documentation
 
 -- Highlight text on yank
 vim.api.nvim_create_autocmd("TextYankPost", {

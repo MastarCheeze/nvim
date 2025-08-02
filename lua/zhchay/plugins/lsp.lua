@@ -1,8 +1,8 @@
 local servers = {
-  lua_ls = true,
-  clangd = true,
-  pyright = true,
-  ts_ls = true,
+  lua_ls = nil,
+  clangd = nil,
+  pyright = nil,
+  ts_ls = nil,
   html = {
     filetypes = { "html", "templ", "njk" },
   },
@@ -22,10 +22,10 @@ local servers = {
       "njk",
     },
   },
-  cssls = true,
-  texlab = true,
-  vimls = true,
-  dockerls = true,
+  cssls = nil,
+  texlab = nil,
+  vimls = nil,
+  dockerls = nil,
 
   jsonls = {
     settings = {
@@ -50,37 +50,22 @@ local servers = {
 }
 
 -- Setup LSP servers
-local lspconfig = require("lspconfig")
-require("mason").setup({ ui = { border = "rounded" } })
-require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
-require("lazydev").setup({})
+require("lspconfig")
 
--- Autocompletion capabilities
-local capabilities = nil
+local capabilities = nil -- Autocompletion capabilities
 if pcall(require, "cmp_nvim_lsp") then
   capabilities = require("cmp_nvim_lsp").default_capabilities()
 end
 
--- Hover and signature popup window handlers
-local handlers = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    max_width = 120,
-    border = "rounded",
-  }),
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    max_width = 120,
-    border = "rounded",
-  }),
-}
-
 for name, config in pairs(servers) do
-  if config == true then
-    config = {}
-  end
-  config = vim.tbl_deep_extend("force", {}, { capabilities = capabilities, handlers = handlers }, config)
-
-  lspconfig[name].setup(config)
+  config = config or {}
+  config = vim.tbl_deep_extend("force", {}, { capabilities = capabilities }, config)
+  vim.lsp.config(name, config)
 end
+
+require("mason").setup({ ui = { border = "rounded" } })
+require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
+require("lazydev").setup({})
 
 -- Keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -111,19 +96,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>ld", "<cmd>FzfLua diagnostics_document<cr>", { desc = "Show buffer diagnostics" })
     map("n", "]d", function()
       local jump = vim.diagnostic.get_next()
-      vim.diagnostic.goto_next({ float = true })
+      vim.diagnostic.jump({ count = 1, float = true })
       if jump then
         vim.cmd("normal! zz")
       end
-      -- vim.diagnostic.jump({ count = 1, float = true }) -- use these in 0.11
     end, { desc = "Next diagnostic" })
     map("n", "[d", function()
       local jump = vim.diagnostic.get_prev()
-      vim.diagnostic.goto_prev({ float = true })
+      vim.diagnostic.jump({ count = -1, float = true })
       if jump then
         vim.cmd("normal! zz")
       end
-      -- vim.diagnostic.jump({ count = -1, float = true }) -- use these in 0.11
     end, { desc = "Previous diagnostic" })
   end,
 })
@@ -140,7 +123,6 @@ vim.diagnostic.config({
       source = " <" .. source .. ">"
       return diagnostic.message .. source
     end,
-    border = "rounded",
   },
 })
 
