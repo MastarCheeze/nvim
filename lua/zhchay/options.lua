@@ -38,7 +38,7 @@ o.smartcase = true
 -- Display
 o.colorcolumn = "120" -- editor ruler
 o.wrap = false -- turn off line wrap
-o.scrolloff = 8 -- always keep at least 8 lines above/below cursor
+o.scrolloff = 4 -- always keep at least 8 lines above/below cursor
 
 -- Misc
 o.clipboard = "unnamedplus" -- use system clipboard as default
