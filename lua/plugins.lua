@@ -138,4 +138,11 @@ return {
     "Aasim-A/scrollEOF.nvim",
     opts = {},
   },
+  -- jsdoc autogeneration
+  {
+    "heavenshell/vim-jsdoc",
+    build = "make install", -- install dependency lehre via npm
+    lazy = true,
+    ft = { "javascript", "typescript" },
+  },
 }
