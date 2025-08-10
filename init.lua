@@ -18,11 +18,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Import core configs
-require("zhchay.options")
-require("zhchay.keymaps")
+require("options")
+require("keymaps")
 
 -- Setup plugins
-local plugins = require("zhchay.plugins")
+local plugins = require("plugins")
 require("lazy").setup(plugins, {
   change_detection = { notify = false },
   ui = { border = "rounded" },

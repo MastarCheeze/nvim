@@ -5,14 +5,14 @@ return {
     name = "catppuccin",
     priority = 1000,
     config = function()
-      require("zhchay.plugins.colorscheme")
+      require("plugins.colorscheme")
     end,
   },
   -- statusline
   {
     "nvim-lualine/lualine.nvim",
     config = function()
-      require("zhchay.plugins.statusline")
+      require("plugins.statusline")
     end,
   },
   -- file explorer
@@ -20,7 +20,7 @@ return {
     "stevearc/oil.nvim",
     dependencies = { "echasnovski/mini.icons" },
     config = function()
-      require("zhchay.plugins.explorer")
+      require("plugins.explorer")
     end,
   },
   -- telescope
@@ -29,7 +29,7 @@ return {
     branch = "0.1.x",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      require("zhchay.plugins.telescope")
+      require("plugins.telescope")
     end,
   },
   -- lsp
@@ -51,14 +51,14 @@ return {
       "b0o/SchemaStore.nvim",
     },
     config = function()
-      require("zhchay.plugins.lsp")
+      require("plugins.lsp")
     end,
   },
   -- formatter
   {
     "stevearc/conform.nvim",
     config = function()
-      require("zhchay.plugins.formatter")
+      require("plugins.formatter")
     end,
   },
   -- completion
@@ -72,7 +72,7 @@ return {
       "onsails/lspkind.nvim", -- nice icons
     },
     config = function()
-      require("zhchay.plugins.completion")
+      require("plugins.completion")
     end,
   },
   -- snippets
@@ -80,7 +80,7 @@ return {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
     config = function()
-      require("zhchay.plugins.snippets")
+      require("plugins.snippets")
     end,
   },
   -- treesitter
@@ -91,35 +91,35 @@ return {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
-      require("zhchay.plugins.treesitter")
+      require("plugins.treesitter")
     end,
   },
   -- indent guides
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-      require("zhchay.plugins.indentblankline")
+      require("plugins.indentblankline")
     end,
   },
   -- gitsigns
   {
     "lewis6991/gitsigns.nvim",
     config = function()
-      require("zhchay.plugins.gitsigns")
+      require("plugins.gitsigns")
     end,
   },
   -- save and restore sessions
   {
     "rmagatti/auto-session",
     config = function()
-      require("zhchay.plugins.autosession")
+      require("plugins.autosession")
     end,
   },
   -- greeter
   {
     "goolord/alpha-nvim",
     config = function()
-      require("zhchay.plugins.greeter")
+      require("plugins.greeter")
     end,
   },
   -- actions for surrounding pairs
