@@ -32,27 +32,36 @@ return {
       require("plugins.telescope")
     end,
   },
+  -- mason: package manager for LSPs, formatters, linters and DAPs
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("plugins.mason")
+    end,
+  },
   -- lsp
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-      {
-        "folke/lazydev.nvim", -- configure LSP for neovim config, runtime and plugins
-        ft = "lua",
-        opts = {
-          library = {
-            -- Load luvit types when the `vim.uv` word is found
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-          },
-        },
-      },
+      "folke/lazydev.nvim",
       "b0o/SchemaStore.nvim",
     },
     config = function()
       require("plugins.lsp")
     end,
+  },
+  -- configure LSP for neovim config (language support for neovim plugins in lua)
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
   },
   -- formatter
   {
