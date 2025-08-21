@@ -63,6 +63,14 @@ return {
       },
     },
   },
+  -- linter
+  {
+    "mfussenegger/nvim-lint",
+    dependencies = { "williamboman/mason.nvim" },
+    config = function()
+      require("plugins.linter")
+    end,
+  },
   -- formatter
   {
     "stevearc/conform.nvim",
