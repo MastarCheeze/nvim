@@ -26,7 +26,7 @@ local plugins = require("plugins")
 require("lazy").setup(plugins, {
   change_detection = { notify = false },
   ui = { border = "rounded" },
-  -- disable unnecessary okygubs
+  -- disable unnecessary plugins
   performance = {
     rtp = {
       disabled_plugins = {
