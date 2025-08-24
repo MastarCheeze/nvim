@@ -1,5 +1,9 @@
 require("catppuccin").setup({
   flavour = "mocha",
+  float = {
+    transparent = false,
+    solid = false,
+  },
   color_overrides = {
     all = {
       base = "#12121C", -- darker bg colours
