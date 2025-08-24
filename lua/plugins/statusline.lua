@@ -31,6 +31,12 @@ lualine.setup({
         mode = 1,
         max_length = vim.o.columns,
         show_modified_status = false,
+        fmt = function(name, context)
+          if context.filetype == "oil" then
+            name = "[Explorer]"
+          end
+          return context.tabnr .. " " .. name
+        end,
       },
     },
   },
