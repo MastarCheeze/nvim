@@ -30,7 +30,7 @@ end, { desc = "Telescope git status" })
 map("n", "<leader>b", builtin.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>u", builtin.live_grep, { desc = "Telescope live grep" })
 map("n", "<leader>i", builtin.current_buffer_fuzzy_find, { desc = "Telescope find in buffer" })
-map("n", "<leader>?", builtin.help_tags, { desc = "Telescope help tags" })
+map("n", "<leader>/", builtin.help_tags, { desc = "Telescope help tags" })
 map("n", "<leader>\\", builtin.builtin, { desc = "Telescope all pickers" })
 
 -- Dim background when picker is open

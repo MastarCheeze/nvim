@@ -73,7 +73,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- LSP find and go to hovered symbol
     map("n", "gd", builtin.lsp_definitions, { desc = "Find definitions" })
-    map("n", "gr", builtin.lsp_references, { desc = "Find references" })
+    map("n", "gR", builtin.lsp_references, { desc = "Find references" })
     map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
     map("n", "gT", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
 

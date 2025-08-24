@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 
 -- Write buffer
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Write buffer" })
-map("n", "<leader>W", "<cmd>wa<cr>", { desc = "Write all buffer" })
 
 -- File explorer
 map("n", "<leader>e", ":Oil<cr>", { silent = true, desc = "Show file explorer" })
@@ -28,9 +27,6 @@ map({ "n", "i", "v" }, "<C-t><C-n>", "<cmd>tabnext<cr>", { desc = "Next tab" })
 
 -- Custom text-editing actions
 map({ "n", "v" }, "<leader>d", '"_d', { noremap = true, desc = "Delete to void register" })
--- map("n", "<leader>vo", "o<esc>o<esc>", { desc = "Insert two newlines below" })
--- map("n", "<leader>vO", "O<esc>O<esc>", { desc = "Insert two newlines above" })
--- map("n", "<leader>vp", "O<esc>jo<esc>k", { desc = "Pad with newlines above and below" })
 map("n", "<leader>va", "ggVG", { desc = "Select entire buffer" })
 map("n", "<leader>vr", ":%s/", { desc = "Replace text" })
 
