@@ -121,9 +121,7 @@ return {
   -- gitsigns
   {
     "lewis6991/gitsigns.nvim",
-    config = function()
-      require("plugins.gitsigns")
-    end,
+    opts = {},
   },
   -- save and restore sessions
   {
