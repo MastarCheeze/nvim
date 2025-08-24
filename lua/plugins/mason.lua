@@ -2,31 +2,30 @@ require("mason").setup({ ui = { border = "rounded" } })
 
 -- Command to print all attached clients
 local function get_attached_clients()
-  -- Get active clients for current buffer
-  local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
-  local buf_ft = vim.bo.filetype
-  local buf_client_names = {}
-  local num_client_names = #buf_client_names
+  local clients = {
+    lsp = {},
+    linter = {},
+    formatter = {},
+  }
 
   -- Add lsp-clients active in the current buffer
+  local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
   for _, client in pairs(buf_clients) do
-    num_client_names = num_client_names + 1
-    buf_client_names[num_client_names] = client.name
+    table.insert(clients.lsp, client.name)
   end
 
   -- Add linters for the current filetype (nvim-lint)
   local lint_success, lint = pcall(require, "lint")
+  local buf_ft = vim.bo.filetype
   if lint_success then
     for ft, ft_linters in pairs(lint.linters_by_ft) do
       if ft == buf_ft then
         if type(ft_linters) == "table" then
           for _, linter in pairs(ft_linters) do
-            num_client_names = num_client_names + 1
-            buf_client_names[num_client_names] = linter
+            table.insert(clients.linter, linter)
           end
         else
-          num_client_names = num_client_names + 1
-          buf_client_names[num_client_names] = ft_linters
+          table.insert(clients.linter, ft_linters)
         end
       end
     end
@@ -37,19 +36,21 @@ local function get_attached_clients()
   if conform_success then
     for _, formatter in pairs(conform.list_formatters_for_buffer(0)) do
       if formatter then
-        num_client_names = num_client_names + 1
-        buf_client_names[num_client_names] = formatter
+        table.insert(clients.formatter, formatter)
       end
     end
   end
 
-  return buf_client_names
+  return clients
 end
 
 vim.api.nvim_create_user_command("AttachedClients", function()
   local clients = get_attached_clients()
-  if #clients == 0 then
-    print("No active clients")
-  end
-  print(table.concat(clients, ", "))
+  local out = ""
+
+  out = out .. "LSPs: { " .. table.concat(clients.lsp, ", ") .. " }, "
+  out = out .. "Linters: { " .. table.concat(clients.linter, ", ") .. " }, "
+  out = out .. "Formatters: { " .. table.concat(clients.formatter, ", ") .. " }"
+
+  print(out)
 end, {})
