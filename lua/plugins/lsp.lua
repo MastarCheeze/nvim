@@ -75,7 +75,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gd", builtin.lsp_definitions, { desc = "Find definitions" })
     map("n", "gR", builtin.lsp_references, { desc = "Find references" })
     map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
-    map("n", "gT", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
 
     -- Documentation
     map("n", "K", vim.lsp.buf.hover, { desc = "Show documentation" })
@@ -87,7 +86,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
     map("n", "<leader>ll", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
-    map("n", "<leader>ld", "<cmd>FzfLua diagnostics_document<cr>", { desc = "Show buffer diagnostics" })
+    map("n", "<leader>ld", builtin.diagnostics, { desc = "Show buffer diagnostics" })
     map("n", "]d", function()
       local jump = vim.diagnostic.get_next()
       vim.diagnostic.jump({ count = 1, float = true })
