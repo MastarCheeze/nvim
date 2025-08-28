@@ -123,6 +123,11 @@ return {
     "lewis6991/gitsigns.nvim",
     opts = {},
   },
+  -- tmux support for nvim (e.g. keybinds to move between both nvim and tmux panes)
+  {
+    "aserowy/tmux.nvim",
+    opts = {},
+  },
   -- save and restore sessions
   {
     "rmagatti/auto-session",
