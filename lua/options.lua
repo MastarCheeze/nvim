@@ -16,16 +16,10 @@ o.autoindent = true
 o.smartindent = true
 o.cindent = true
 
--- Disable comment continuation on newlines
-vim.api.nvim_create_autocmd("BufEnter", {
-  desc = "Disable comment continuation on newlines",
-  group = vim.api.nvim_create_augroup("CommentFormatOpt", { clear = true }),
-  callback = function()
-    o.formatoptions:remove("c")
-    o.formatoptions:remove("r")
-    o.formatoptions:remove("o")
-  end,
-})
+-- Enable comment continuation on newlines (tip: <C-u> to delete inserted comment)
+o.formatoptions:append("r")
+o.formatoptions:append("o")
+o.formatoptions:append("/")
 
 -- Window splitting
 o.splitbelow = true
