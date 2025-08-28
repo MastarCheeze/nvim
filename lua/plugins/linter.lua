@@ -7,6 +7,8 @@ lint.linters_by_ft = {
   typescript = { "eslint_d" },
 }
 
+table.insert(lint.linters["eslint_d"].args, 1, "--no-warn-ignored")
+
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePre", "InsertLeave" }, {
   callback = function()
     -- check if eslint config exists
