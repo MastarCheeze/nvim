@@ -126,7 +126,7 @@ return {
   -- tmux support for nvim (e.g. keybinds to move between both nvim and tmux panes)
   {
     "aserowy/tmux.nvim",
-    opts = {},
+    opts = { copy_sync = { sync_clipboard = false } },
   },
   -- save and restore sessions
   {
