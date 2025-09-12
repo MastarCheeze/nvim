@@ -17,6 +17,7 @@ require("oil").setup({
     ["<CR>"] = "actions.select",
     ["<ESC>"] = { "actions.close", mode = "n" },
     ["<BS>"] = { "actions.parent", mode = "n" },
+    ["<C-p>"] = "actions.preview",
     ["-"] = { "actions.open_cwd", mode = "n" },
     ["`"] = { "actions.cd", mode = "n" },
     ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
