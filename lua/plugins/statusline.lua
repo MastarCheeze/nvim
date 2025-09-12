@@ -4,7 +4,7 @@ lualine.setup({
   options = {
     globalstatus = true,
     section_separators = "",
-    component_separators = "",
+    component_separators = "·",
     always_show_tabline = false,
   },
   sections = {
@@ -34,6 +34,8 @@ lualine.setup({
         fmt = function(name, context)
           if context.filetype == "oil" then
             name = "[Explorer]"
+          elseif name == "" then
+            name = "[" .. context.filetype .. "]"
           end
           return context.tabnr .. " " .. name
         end,
