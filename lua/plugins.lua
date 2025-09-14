@@ -82,10 +82,10 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp", -- sources
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-buffer",
-      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp", -- source for lsp
+      "hrsh7th/cmp-path", -- source for path
+      "hrsh7th/cmp-buffer", -- source for buffer text
+      "saadparwaiz1/cmp_luasnip", -- source for luasnip snippets
       "onsails/lspkind.nvim", -- nice icons
     },
     config = function()
