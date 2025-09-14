@@ -10,9 +10,6 @@ require("catppuccin").setup({
       -- duotone neovim greeter header
       AlphaHeader1 = { fg = colours.blue, style = { "bold" } },
       AlphaHeader2 = { fg = colours.green, style = { "bold" } },
-      -- set neotree background to base
-      NeoTreeNormal = { fg = colours.text, bg = colours.base },
-      NeoTreeNormalNC = { fg = colours.text, bg = colours.base },
     }
   end,
   default_integrations = false,
@@ -39,7 +36,6 @@ require("catppuccin").setup({
       },
     },
     cmp = true,
-    neotree = true,
     alpha = true,
     mason = true,
     gitsigns = true,
