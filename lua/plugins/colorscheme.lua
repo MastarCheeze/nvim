@@ -4,13 +4,6 @@ require("catppuccin").setup({
     transparent = false,
     solid = false,
   },
-  color_overrides = {
-    all = {
-      base = "#12121C", -- darker bg colours
-      mantle = "#060609",
-      crust = "#000000",
-    },
-  },
   custom_highlights = function(colours)
     return {
       WinSeparator = { fg = colours.overlay0 },
