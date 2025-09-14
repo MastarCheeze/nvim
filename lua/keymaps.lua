@@ -16,12 +16,12 @@ map({ "n", "i", "v" }, "<C-w>d", "<C-w>c", { desc = "Close window" }) -- <C-w><C
 map({ "n", "i", "v" }, "<C-w><C-d>", "<C-w>c", { desc = "Close window" })
 
 -- Tab navigation
-map({ "n", "i", "v" }, "<C-t>t", "<cmd>tabnew<cr>", { desc = "New tab" })
-map({ "n", "i", "v" }, "<C-t><C-t>", "<cmd>tabnew<cr>", { desc = "New tab" })
+map({ "n", "i", "v" }, "<C-t>c", "<cmd>tabnew<cr>", { desc = "New tab" })
+map({ "n", "i", "v" }, "<C-t><C-c>", "<cmd>tabnew<cr>", { desc = "New tab" })
 map({ "n", "i", "v" }, "<C-t>d", "<cmd>tabclose<cr>", { desc = "Close tab" })
 map({ "n", "i", "v" }, "<C-t><C-d>", "<cmd>tabclose<cr>", { desc = "Close tab" })
-map({ "n", "v" }, "<C-t>p", "<cmd>tabprevious<cr>", { desc = "Previous tab" }) -- can't set insert mode for this because issue with tmux (^[ is the escape sequence)
-map({ "n", "v" }, "<C-t><C-p>", "<cmd>tabprevious<cr>", { desc = "Previous tab" }) -- can't set insert mode for this because issue with tmux (^[ is the escape sequence)
+map({ "n", "i", "v" }, "<C-t>p", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
+map({ "n", "i", "v" }, "<C-t><C-p>", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
 map({ "n", "i", "v" }, "<C-t>n", "<cmd>tabnext<cr>", { desc = "Next tab" })
 map({ "n", "i", "v" }, "<C-t><C-n>", "<cmd>tabnext<cr>", { desc = "Next tab" })
 
