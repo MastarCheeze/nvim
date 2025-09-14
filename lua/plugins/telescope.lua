@@ -13,6 +13,13 @@ require("telescope").setup({
     find_files = {
       hidden = true,
     },
+    buffers = {
+      mappings = {
+        i = {
+          ["<C-x>"] = "delete_buffer",
+        },
+      },
+    },
     colorscheme = {
       enable_preview = true,
       layout_strategy = "center",
