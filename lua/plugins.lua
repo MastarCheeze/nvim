@@ -130,10 +130,9 @@ return {
   },
   -- save and restore sessions
   {
-    "rmagatti/auto-session",
-    config = function()
-      require("plugins.autosession")
-    end,
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- save session only when an actual file is opened
+    opts = {},
   },
   -- greeter
   {

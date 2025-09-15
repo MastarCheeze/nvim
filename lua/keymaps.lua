@@ -30,6 +30,11 @@ map({ "n", "v" }, "<leader>d", '"_d', { noremap = true, desc = "Delete to void r
 map("n", "<leader>va", "ggVG", { desc = "Select entire buffer" })
 map("n", "<leader>vr", ":%s/", { desc = "Replace text" })
 
+-- Restoring sessions
+map("n", "<leader><leader>r", function()
+  require("persistence").load()
+end, { desc = "Restore previous session" })
+
 -- QOL changes
 map("n", "<C-d>", "<C-d>zz", { noremap = true }) -- center cursor on screen when moving with <C-u> and <C-d>
 map("n", "<C-u>", "<C-u>zz", { noremap = true })
