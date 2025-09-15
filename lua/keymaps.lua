@@ -30,11 +30,6 @@ map({ "n", "v" }, "<leader>d", '"_d', { noremap = true, desc = "Delete to void r
 map("n", "<leader>va", "ggVG", { desc = "Select entire buffer" })
 map("n", "<leader>vr", ":%s/", { desc = "Replace text" })
 
--- Sourcing files
-map("n", "<leader><leader>x", "<cmd>w<cr><cmd>source %<cr>", { desc = "Execute the current file" })
-map("n", "<leader><leader>X", "<cmd>.lua<cr>", { desc = "Execute the current line" })
-map("v", "<leader><leader>X", "<cmd>lua<cr>", { desc = "Execute the current selection" })
-
 -- QOL changes
 map("n", "<C-d>", "<C-d>zz", { noremap = true }) -- center cursor on screen when moving with <C-u> and <C-d>
 map("n", "<C-u>", "<C-u>zz", { noremap = true })
