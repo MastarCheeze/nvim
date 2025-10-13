@@ -7,25 +7,44 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("go", {
   s(
-    "errPanic",
+    "errNil",
+      fmt(
+      [[
+if err != nil {{
+  {}
+}}
+  ]], {i(0)}
+    )
+  ),
+  s(
+    "errNilPanic",
     fmt(
       [[
 if err != nil {{
   panic(err)
 }}
-
   ]],
       {}
     )
   ),
   s(
-    "errReturn",
+    "errNilFatal",
+    fmt(
+      [[
+if err != nil {{
+  log.Fatal(err)
+}}
+  ]],
+      {}
+    )
+  ),
+  s(
+    "errNilReturn",
     fmt(
       [[
 if err != nil {{
   return {}
 }}
-
   ]],
       { i(0) }
     )
