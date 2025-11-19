@@ -4,7 +4,7 @@ lualine.setup({
   options = {
     globalstatus = true,
     section_separators = "",
-    component_separators = "·",
+    component_separators = "",
     always_show_tabline = false,
   },
   sections = {
