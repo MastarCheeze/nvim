@@ -1,6 +1,14 @@
 -- All LSP servers installed using Mason will be automatically loaded by mason-lspconfig
 -- Any extra configuration for LSP servers can be specified here
 local servers = {
+  gopls = {
+    settings = {
+      gopls = {
+        buildFlags = { "-tags=dev" },
+      },
+    },
+  },
+
   html = {
     filetypes = { "html", "templ", "njk" },
   },
@@ -133,4 +141,3 @@ vim.diagnostic.config({
     },
   },
 })
-
